@@ -87,6 +87,34 @@ Số node lá trong cây
 | 505 | |
 | 0 | |
 
+## Problem 7: [Số Có Hậu](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/So_Co_Hau.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Jim thích các phim và truyện kết thúc có hậu. Một lần gặp may với số n và từ đó Jim rất có cảm tình với tất cả 
+các số nguyên kết thúc bằng **n**, coi chúng là những số có hậu. Ví dụ với **n** = 25 thì các số 625, 
+553325,1025 là những số có hậu, còn 3255 – không có hậu!
+
+Jim không thích các ràng buộc và hạn chế. Nhưng trong thế giới thực của chúng ta ràng buộc và 
+hạn chế là điều tất yếu. Một người bạn của Jim khuyên chỉ nên quan tâm đến các số nguyên không vượt quá **m** 
+và dĩ nhiên, Jim muốn biết có bao nhiêu số có hậu không vượt quá **m**.
+
+**INPUT**
+
+Vào từ thiết bị nhập chuẩn gồm một dòng chứa 2 số nguyên **n** và **m (1 ≤ n ≤ m ≤ 2×109)**.
+
+**OUTPUT**
+
+Đưa ra thiết bị xuất chuẩn một số nguyên – số lượng số có hậu tìm được.
+
+**VÍ DỤ**
+
+| Input | Output |
+|:---:|:---:|
+| 23 122 | 1|
+
+
 
 
 
