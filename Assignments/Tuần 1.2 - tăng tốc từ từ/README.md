@@ -62,6 +62,90 @@ VÍ DỤ:
 | 2 | 778|
 | 777 778 | |
 
+## Problem 3: [Xử lý chuỗi](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Xu_Ly_Chuoi.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Bob đang tham dự một lớp học lập trình. Bài tập đầu tiên của Bob là viết một chương trình đơn giản. 
+Chương trình sẽ yêu cầu nhập một chuỗi, sau đó nếu có chữ viết hoa trong chuỗi thì thay thế chúng 
+bằng những chữ viết thường. Xóa hết tất cả các nguyên âm và chèn dấu "." trước mỗi phụ âm có trong
+chuỗi đó.
+
+Biết nguyên âm là những kí tự "A","O","Y","E","U","I", và những kí tự còn lại là phụ âm. Chương trình 
+sẽ nhận đầu vào là mỗi chuỗi và đầu ra là một chuỗi sau khi xử lí những yêu cầu trên.
+
+Bob đang loay hoay không biết làm bài này như thế nào. Bạn hãy giúp Bob nhé.
+
+**INPUT**
+
+Dòng đầu tiên là một chuỗi gồm những cữ cái Latin viết hoa và viết thường, có độ dài từ 1 đến 100.
+
+**OUTPUT**
+
+Chuỗi kết quả.
+
+VÍ DỤ:
+
+| Input | Output |
+|:---:|:---:|
+| tour | .t.r|
+|aBAcAba |	.b.c.b |
+| pyThon |.p.t.h.n|
+
+## Problem 4: [Ngôn ngữ của Lan](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Ngon_Ngu_Cua_Lan.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Lan đang học ở một trường ngoại ngữ ở Tp.HCM. Lan rất yêu thích ngôn ngữ, đặc biệt là ngữ pháp. 
+Khi  bước vào năm thứ 3, Lan quyết định tạo ra một ngôn ngữ mới dễ sử dụng nhất có thể đủ để 
+nói chuyện với bạn bè. Ngôn ngữ mới của Lan có tên là Lan's Language và thỏa theo những ngữ pháp sau:
+
+  Có 3 loại từ trong Lan's Language: danh từ, động từ và tính từ. Mỗi từ trong Lan's Language thuộc một trong 3 loại từ đó.
+  
+  Có 2 giới tính: Nam và Nữ. Mỗi từ trong Lan's Language thuộc một trong 2 giới tính đó.
+  
+  Tính từ nam là những từ kết thúc với -lios và Tính từ nữ là những từ kết thúc với -liala.
+  
+  Danh từ nam là những từ kết thúc với -etr và  Danh từ nữ là những từ kết thúc với -etra.
+  
+  Động từ nam là những từ kết thúc với -initis và  Động từ nữ là những từ kết thúc với -inites.
+  
+  Các từ trong Lan's Language luôn kết thúc bằng 1 trong các đuôi trên.
+  
+  Các từ mà chỉ có mỗi đuôi như "lios", "liala", "etr"... cũng thuộc Lan's Language.
+  
+  Không có dấu câu, ngữ pháp chia thì và các dạng biến đổi từ trong Lan's Language.
+  
+  Một câu trong Lan's Language là một từ hợp lệ (thỏa những tính chất trong Lan's Language) hoặc là một mệnh đề hợp lệ.
+  
+Một mệnh đề hợp lệ trong Lan's language phải thỏa 2 điều kiện sau:
+
+  Những từ trong mệnh đề phải hợp lệ và được sắp xếp theo thứ tự: Tính từ + Danh từ + Động từ. 
+  Trong đó: Tính từ có thể có 1 hoặc nhiều hoặc không có nhưng phải đứng trước Danh từ. Chỉ có
+  duy nhất một Danh từ trong câu. Động từ có thể có 1 hoặc nhiều hoặc không có nhưng phải
+  đứng sau Danh từ.
+  
+  Tất cả các từ trong mệnh đề phải cùng giới tính.
+Cho một câu gồm một chuỗi các từ, nhiệm vụ của bạn là viết một chương trình kiểm tra xem câu được nhập vào có thỏa mãn 
+những tính chất của Lan's language hay không? 
+
+**OUTPUT**
+
+Nếu câu nhập vào thỏa mãn những tính chất của Lan's language, xuất YES
+Ngược lại xuất NO
+
+
+VÍ DỤ:
+
+| Input | Output |
+|:---:|:---:|
+| petr| YES|
+| etis atis animatis etis atis amatis | NO|
+| nataliala kataliala vetra feinites | YES|
+
+
 
 
 
