@@ -145,6 +145,42 @@ VÍ DỤ:
 | etis atis animatis etis atis amatis | NO|
 | nataliala kataliala vetra feinites | YES|
 
+## Problem 4: [Rút Gọn Phân Số](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Rut_Gon_Phan_So.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Viết chương trình rút gọn phân số.
+
+**INPUT**
+
+Dòng đầu tiên là một số nguyên **n(1≤n≤100)** — Số lượng phân số cần rút gọn
+
+n dòng tiếp theo là hai số nguyên **a,b(a,b≥1) — a,b** lần lượt là tử số và mẫu số.
+
+**OUTPUT**
+
+Ứng với **n** dòng, in ra theo thứ tự **tử số** và **mẫu số** (cách nhau một khoảng trắng) sau khi rút gọn; mẫu số
+chỉ được in khi lớn hơn 1.
+
+**VÍ DỤ:**
+
+| Input | Output |
+|:---:|:---:|
+| 5| |
+| 6 8 | 3 4|
+| 3 7 | 3 7|
+| 5 10 | 1 2|
+| 10 5 | 2|
+| 25 100 | 1 4|
+| 2| |
+| 77 105 | 11 15|
+| 121 11 | 11|
+
+
+
+
+
 
 
 
