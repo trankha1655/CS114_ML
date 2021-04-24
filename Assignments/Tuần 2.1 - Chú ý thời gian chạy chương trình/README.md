@@ -46,6 +46,50 @@ Input kết thúc bằng một dòng trống không có nội dung.
 |20 256 | |
 | 11 38574 | |
 
+## Problem 2: [Đếm Node Lá](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Dem_Node_La.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Cho một dãy số, hãy cho biết số node lá của cây nhị phân tìm kiếm thu được khi thêm lần lượt các số 
+trong dãy vào cây.
+
+**INPUT**
+
+Một dãy số nguyên khác 0, mỗi số trên một hàng. Dãy số tận cùng bằng số 0
+
+**OUTPUT**
+
+Số node lá trong cây
+
+**VÍ DỤ**
+
+| Input | Output |
+|:---:|:---:|
+| 393 | 5|
+| 981 | |
+| 841 | |
+| 133 | |
+| 891 | |
+| 739 | |
+| 663 | |
+| 119 | |
+| 497 | |
+| 865 | |
+| 54 | |
+| 631 | |
+| 561 | |
+| 51 | |
+| 227 | |
+| 841 | |
+| 352 | |
+| 996 | |
+| 505 | |
+| 0 | |
+
+
+
+
 
 
 
