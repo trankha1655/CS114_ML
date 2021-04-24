@@ -102,23 +102,23 @@ Lan đang học ở một trường ngoại ngữ ở Tp.HCM. Lan rất yêu th�
 Khi  bước vào năm thứ 3, Lan quyết định tạo ra một ngôn ngữ mới dễ sử dụng nhất có thể đủ để 
 nói chuyện với bạn bè. Ngôn ngữ mới của Lan có tên là Lan's Language và thỏa theo những ngữ pháp sau:
 
-  Có 3 loại từ trong Lan's Language: danh từ, động từ và tính từ. Mỗi từ trong Lan's Language thuộc một trong 3 loại từ đó.
+  - Có 3 loại từ trong Lan's Language: danh từ, động từ và tính từ. Mỗi từ trong Lan's Language thuộc một trong 3 loại từ đó.
   
-  Có 2 giới tính: Nam và Nữ. Mỗi từ trong Lan's Language thuộc một trong 2 giới tính đó.
+  - Có 2 giới tính: Nam và Nữ. Mỗi từ trong Lan's Language thuộc một trong 2 giới tính đó.
   
-  Tính từ nam là những từ kết thúc với -lios và Tính từ nữ là những từ kết thúc với -liala.
+  - Tính từ nam là những từ kết thúc với -lios và Tính từ nữ là những từ kết thúc với -liala.
   
-  Danh từ nam là những từ kết thúc với -etr và  Danh từ nữ là những từ kết thúc với -etra.
+  - Danh từ nam là những từ kết thúc với -etr và  Danh từ nữ là những từ kết thúc với -etra.
   
-  Động từ nam là những từ kết thúc với -initis và  Động từ nữ là những từ kết thúc với -inites.
+  - Động từ nam là những từ kết thúc với -initis và  Động từ nữ là những từ kết thúc với -inites.
   
-  Các từ trong Lan's Language luôn kết thúc bằng 1 trong các đuôi trên.
+  - Các từ trong Lan's Language luôn kết thúc bằng 1 trong các đuôi trên.
   
-  Các từ mà chỉ có mỗi đuôi như "lios", "liala", "etr"... cũng thuộc Lan's Language.
+  - Các từ mà chỉ có mỗi đuôi như "lios", "liala", "etr"... cũng thuộc Lan's Language.
   
-  Không có dấu câu, ngữ pháp chia thì và các dạng biến đổi từ trong Lan's Language.
+  - Không có dấu câu, ngữ pháp chia thì và các dạng biến đổi từ trong Lan's Language.
   
-  Một câu trong Lan's Language là một từ hợp lệ (thỏa những tính chất trong Lan's Language) hoặc là một mệnh đề hợp lệ.
+  - Một câu trong Lan's Language là một từ hợp lệ (thỏa những tính chất trong Lan's Language) hoặc là một mệnh đề hợp lệ.
   
 Một mệnh đề hợp lệ trong Lan's language phải thỏa 2 điều kiện sau:
 
@@ -145,7 +145,7 @@ VÍ DỤ:
 | etis atis animatis etis atis amatis | NO|
 | nataliala kataliala vetra feinites | YES|
 
-## Problem 4: [Rút Gọn Phân Số](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Rut_Gon_Phan_So.py)
+## Problem 5: [Rút Gọn Phân Số](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Rut_Gon_Phan_So.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -176,6 +176,87 @@ chỉ được in khi lớn hơn 1.
 | 2| |
 | 77 105 | 11 15|
 | 121 11 | 11|
+
+## Problem 6: [Gọt Dưa](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Got_Dua.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+An và Bình rất thích ăn dưa hấu vì thế họ đi ra chợ chọn mua một trái to và chín nhất.  Về đến nhà, một 
+vấn đề nảy sinh đó là việc chia phần trái dưa hấu cho cả 2, không chỉ thế, do 2 người bạn chỉ thích những 
+con số chẵn, vì thế cần chia quả dưa hấu làm sao cho mỗi phần có khối lượng là một con số chẵn. Hãy 
+giúp An và Bình kiểm tra xem có thể chia quả dưa hấu này hay không.
+
+**INPUT**
+
+Một số nguyên không âm
+
+**OUTPUT**
+
+Xuất **YES** nếu có thể chia, ngược lại **NO**
+
+**VÍ DỤ:**
+
+| **INPUT** | **OUTPUT** |
+|:---:|:---:|
+| **8** | **YES**|
+
+## Problem 7: [Rap Phim](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Rap_Phim.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Một rạp phim có diện tích sàn là n x m. Nhân lễ kỉ niệm, người ta cần lót gạch cho sàn của rạp bằng các 
+viên gạch hình vuông với cạnh có kích thước là a. Xác định số lượng viên gạch cần ít nhất để phủ toàn 
+bộ sàn, biết rằng diện tích toàn bộ số gạch được dùng có thể lớn hơn diện tích thực tế của sàn và 
+các viên gạch phải được giữ nguyên, không được cắt ra.
+
+**INPUT**
+
+Ba số nguyên dương **n**, **m**, **a**
+
+**OUTPUT**
+
+Số lượng gạch ít nhất cần để lót sàn.
+
+
+**VÍ DỤ:**
+
+|**INPUT** | **OUTPUT** |
+|:---:|:---:|
+| 6 6 4 | 4|
+
+## Problem 8: [Xếp Domino](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Xep_Domino.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Có một tấm ván gồm MxN hình vuông. Thêm vào đó, có thêm một số lượng không giới hạn các mảnh 
+domino với kích thước 2x1 hình vuông. Bạn được phép quay mảnh domino. Nhiệm vụ cần thực hiện là
+xếp nhiều mảnh domino nhất lên tấm ván sao cho thỏa các điều kiện sau:
+
+- Mỗi mảnh domino phủ toàn bộ 2 hình vuông
+
+- Không có mảnh nào bị xếp chồng lên nhau
+
+- Mỗi mảnh phải nằm toàn bộ trên mặt ván
+
+Tìm số lượng lớn nhất domino có thể xếp lên tấm ván.
+
+**INPUT**
+
+Hai số nguyên dương M, N
+
+**OUTPUT**
+
+Số lượng tối đa mảnh domino có thể xếp được lên tấm ván
+
+**VÍ DỤ**
+
+
+
+
+
 
 
 
