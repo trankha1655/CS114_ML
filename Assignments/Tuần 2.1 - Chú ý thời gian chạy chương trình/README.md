@@ -87,6 +87,45 @@ Số node lá trong cây
 | 505 | |
 | 0 | |
 
+## Problem 6: [Tần Suất](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Tan_Suat.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Viết chương trình nhập vào một dãy gồm **n** số và biến **k**. Đếm số lần xuất hiện của **k** trong dãy đó. 
+
+**INPUT**
+
+Dòng đầu tiên gồm một số nguyên dương **q** — số lượng testcase. Theo sau mỗi testcase gồm:
+
+Dòng thứ nhất là hai số nguyên dương **n,k (1≤n≤1000),(−105≤k≤105)**— Số phần tử của 
+dãy và giá trị cần tìm vị trí.
+
+Dòng thứ hai là giá trị các phần tử trong dãy **a1,a2,...,an(−105≤ai≤105)**
+
+**OUTPUT**
+
+Ứng với mỗi testcase, xuất ra trên một dòng số lần xuất hiện của **k**.
+
+**VÍ DỤ**
+
+| Input | Output |
+|:---:|:---:|
+|3 | |
+|5 4 | |
+|1 2 4 8 5 | 1|
+|4 15| 2|
+|15 5 15 5 | 0|
+|4 9 | |
+|4 4 5 5 | |
+|2 | |
+|1 -15 | |
+|15 | 0|
+|5 -99 | 5|
+|-99 -99 -99 -99 | |
+
+
+
 ## Problem 7: [Số Có Hậu](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/So_Co_Hau.py)
 **Time limit per test: ... second**
 
