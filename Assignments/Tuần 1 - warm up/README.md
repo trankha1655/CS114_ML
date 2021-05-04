@@ -4,14 +4,14 @@
 |ID   | Problem | Status 
 |:---:|:---:|:---:|
 |1 | [Tổng số ước](#problem-1) | 	:white_check_mark: 
-|2 |[Fibo](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/fibo.py)| :white_check_mark: 
-|3 | [Tam Giác](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Tam_Giac) | :white_check_mark:
-|4 | [Áp suất](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ap_Suat.py)| :white_check_mark:
-|5 | [Đường sắt](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Duong_Sat.py)| :white_check_mark:
-|6 | [KFC](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/KFC.py)| :white_check_mark:
-|7 | [Gà Chó](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ga_Cho.py) | :white_check_mark:
-|8 | [Task](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Task.py) | :white_check_mark:
-## Problem 1: 
+|2 |[Fibo](#problem-2)| :white_check_mark: 
+|3 | [Tam Giác](#problem-3) | :white_check_mark:
+|4 | [Áp suất](#problem-4)| :white_check_mark:
+|5 | [Đường sắt](#problem-5)| :white_check_mark:
+|6 | [KFC](#problem-6)| :white_check_mark:
+|7 | [Gà Chó](#problem-7) | :white_check_mark:
+|8 | [Task](#problem-8) | :white_check_mark:
+## Problem 1:
 ### [Tổng số ước](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Tong_Uoc_So.py)
 **Time limit per test: 1 second**
 
@@ -30,7 +30,8 @@
 | 8 | 7 |
 | 27 | 13 |
 
-## Problem 2: [Fibo](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/fibo.py)
+## Problem 2: 
+### [Fibo](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/fibo.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -43,7 +44,8 @@ Nhập vào số nguyên **x** sao cho **1 ≤ x ≤ 30**. Nếu **x** không th
 | -6 | 	So -6 khong nam trong khoang [1,30].|
 | 6 | 8 |
 
-## Problem 3: [Tam Giac](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Tam_giac.py)
+## Problem 3:
+### [Tam Giac](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Tam_giac.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -67,7 +69,8 @@ Dòng thứ ba là độ dài cạnh 3.
 | 3 <br/> 4 <br/> 5 | Tam giac vuong, dien tich = 6 |
 | 1 <br/> 2 <br/> 3| Khong phai tam giac |
 
-## Problem 4: [Áp suất](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ap_suat.py)
+## Problem 4:
+### [Áp suất](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ap_suat.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -92,7 +95,8 @@ Một con số ương ứng theo đơn vị kg/cm2
 | 15 | 	1.0546|
 | 2018 | 	141.879|
 
-## Problem 5: [Đường sắt](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Duong_sat.py)
+## Problem 5:
+### [Đường sắt](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Duong_sat.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -118,7 +122,8 @@ Vào từ thiết bị nhập chuẩn gồm một dòng chứa 2 số nguyên **
 |:---:|:---:|
 | 5  8 | 	2|
 
-## Problem 6: [KFC](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/KFC.py)
+## Problem 6: 
+### [KFC](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/KFC.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -133,12 +138,14 @@ Hai con số - nhiệt độ theo thang **C** và thang **K**
 
 
 | Input | Output |
+|:---:|:---:|
 |658.4  |	 348 621.15|
 | 472.6 | 244.778 517.928|
 
 
 
-## Problem 7: [Gà Chó](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ga_Cho.py)
+## Problem 7: 
+### [Gà Chó](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Ga_Cho.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
@@ -163,7 +170,37 @@ Dữ liệu luôn bảo đảm có kết quả.
 
 
 | Input | Output |
+|:---:|:---:|
 |36 100|	 24 14|
+
+## Problem 8: 
+### [Task](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201%20-%20warm%20up/Task.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+<img align="right"  src="task.png">
+
+Alice và Bob là đôi bạn thân trong lớp và thường giúp nhau trong giờ học. Hôm nay sẽ có tiết kiểm tra toán và như mọi khi – sẽ có **k** đề khác nhau. Lớp học có **n** học sinh. Các bàn trong lớp xếp thành một hàng dọc, mỗi bàn 2 người ngồi. Vị trí bên trái của bàn đánh số là 1, vị trí bên phải – đánh số 2. Đề bài được phát bắt đầu từ vị trí 1 của bàn 1 rồi đến vị trí 2 của bàn 1, tiếp theo là vị trí 1 của bàn 2, rồi tới vị trí 2 của bàn 2, . . . lần lượt các đề 1, đề 2, đề 3, . . . cho tới đề **k** rồi lại quay lại đề 1, đề 2, . . . cho tới khi tất cả các học sinh đều nhận được đề.
+
+
+Alice đến trước và ngồi vào vị trí quen thuộc của mình: hàng **p** và vị trí **q**. Bob đến sau và muốn ngồi vào nơi sẽ nhận được cùng đề với Alice và ở dãy bàn gần với dãy bàn của Alice nhất. Nếu có 2 cách ngồi thì Bob sẽ chọn bàn ở phía trước của Alice.
+
+Hãy xác định bàn **u** và vị trí **v** trong bàn nơi Bob cần phải ngồi. Nếu không có cách ngồi thỏa mãn thì đưa ra một số -1.
+
+**INPUT**: Vào từ thiết bị nhập chuẩn:
+
+- Dòng đầu tiên chứa một số nguyên **n** (2 ≤ **n** ≤ 109),
+- Dòng thứ 2 chứa số nguyên **k** (2 ≤ **k** ≤ **n**),
+- Dòng thứ 3 chứa số nguyên **p** (1 ≤ **p** ≤ (**n**+1)/2),
+- Dòng thứ 4 chứa số nguyên **q** (1 ≤ **q** ≤ 2).
+
+**OUTPUT**: Đưa ra thiết bị xuất chuẩn một dòng 2 số nguyên **u** và **v** tìm được hoặc số -1 nếu không có cách ngồi thỏa mãn điều kiện đã nêu.
+
+
+| Input | Output |
+|:---:|:---:|
+|25 <br/>2 <br/> 1 <br/> 2|	 2 2|
 
 
 
