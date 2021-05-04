@@ -11,6 +11,9 @@
 |6 | [Gọt dưa](#problem-6)| :white_check_mark:
 |7 | [	Rạp phim](#problem-7) | :white_check_mark:
 |8 | [Xếp domino](#problem-8) | :white_check_mark:
+|9 | [Xếp que diêm](#problem-9) | :white_check_mark:
+|10 | [	Chuỗi bằng nhau](#problem-10) | :white_check_mark:
+|11 | [Chuỗi nghịch đảo](#problem-11) | :white_check_mark:
 
 
 ## Problem 1:
