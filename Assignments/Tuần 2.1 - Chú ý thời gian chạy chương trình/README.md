@@ -1,120 +1,276 @@
-## Problem 1: [Tìm số gần nhất(nhiều lần)](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Tim_So_Gan_Nhat.py)
+# Tuần 1.2 - Tăng tốc từ từ
+
+## Progress
+|ID   | Problem | Status 
+|:---:|:---:|:---:|
+|1 | [Số amstrong](#problem-1) | 	:white_check_mark: 
+|2 |[Bán hàng](#problem-2)| :white_check_mark: 
+|3 | [	Xử lý chuỗi](#problem-3) | :white_check_mark:
+|4 | [	Ngôn ngữ của Lan](#problem-4)| :white_check_mark:
+|5 | [	Rút gọn phân số](#problem-5)| :white_check_mark:
+|6 | [Gọt dưa](#problem-6)| :white_check_mark:
+|7 | [	Rạp phim](#problem-7) | :white_check_mark:
+
+
+
+## Problem 1:
+### [Số amstrong](So_Armstrong.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Cho mảng số nguyên A đã sắp xếp tăng dần, tìm trong mảng k số có giá trị gần với giá trị x nhất.
+
+Kiểm tra Số Armstrong (Số Armstrong là số có **K** chữ số và tổng lũy thừa bậc **K** của các chữ số bằng chính nó)
 
 **INPUT**
 
-Dòng đầu tiên cho biết số phần tử của mảng
-
-Dòng thứ 2 là toàn bộ mảng liệt kê trên một hàng, các phần tử cách nhau bởi khoảng trắng
-
-Các dòng sau đó, mỗi dòng chứa 02 số **k  và x** , **k≤n**
-
-Input kết thúc bằng một dòng trống không có nội dung.
+Một số nguyên không âm
 
 **OUTPUT**
-Ứng với mỗi cặp số **(k, x)** xuất ra màn hình số lớn nhất và nhỏ nhất trong dãy **k** số có giá trị gần với **x** nhất.
 
-**nếu có nhiều dãy thõa yêu cầu, xuất ra dãy nằm gần phần đàu mảng A nhất.**
-
-**VÍ DỤ**
+Xuất **True** nếu số nhập vào là số Armstrong, ngược lại **False**
 
 | Input | Output |
 |:---:|:---:|
-|15 <br/> 27753 27754 27755 27756 27758 <br/> 27758 27760 27761  27763 27764 <br/>27764 27765 27766 27766  27766 <br/> 6 43416 <br/> 3 34222 <br/> 3 34222 <br/> 9 29492 <br/>15 10434  <br/> 4 37086  <br/> 10 35250 <br/> |  27764 27766 <br/> 27766 27766 <br/>27760 27766 <br/> 27753 27766 <br/>27765 27766 <br/>27758 27766  |
-| 21 <br/> 26475 26477 26479 26481 26481 26483 26483 <br/> 26484 26485 26487 26489 26489 26490 26491 <br/> 26492 26492 26493 26493 26494 26495 26496 <br/> 3 32272<br/>4 27892 <br/>9 18564 <br/>10 15216 <br/>4 15714 <br/> 20 256 <br/> 11 38574| 26494 26496 <br/>26493 26496 <br/> 26475 26485  <br/> 26475 26487<br/> 26475 26481<br/>26475 26495 <br/> 26489 26496<br/> |
+| 153 | True|
 
-## Problem 2: [Đếm Node Lá](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Dem_Node_La.py)
+## Problem 2: 
+### [Bán Hàng](Ban_Hang.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Cho một dãy số, hãy cho biết số node lá của cây nhị phân tìm kiếm thu được khi thêm lần lượt các số 
-trong dãy vào cây.
+Nam đang là quản lí một cửa hàng nhỏ trong thị trấn. Cửa hàng của Nam có **n** hàng hóa, mỗi hàng hóa thứ **i** có giá **ai**
+đồng,
+
+Mỗi ngày, có rất nhiều khách hàng ghé cửa hàng của Nam và liên tục hỏi giá của từng sản phẩm. Do có quá nhiều hàng hóa nên Nam không thể nào nhớ hết giá của chúng. Vì thế, Nam đã quyết định bán đồng giá tất cả các hàng hóa trong cửa hàng của mình.
+
+Tuy nhiên, để không lỗ vốn, Nam muốn sau khi tất cả **n** hàng hóa trong cửa hàng được bán hết thì thu được tổng số tiền **bằng (hoặc lớn hơn)** so với tổng giá hàng hóa bán với giá gốc.
+
+Mặt khác, Nam không muốn mất khách nếu giá bán quá lớn. Vì vậy, Nam phải bán **n** hàng hóa với giá **tối thiểu** sao cho tổng số tiền thu được sau khi bán hết hàng hóa có trong cửa hàng phải **bằng (hoặc lớn hơn tối thiểu)** so với tổng giá hàng hóa bán với giá gốc.
+
+Với mỗi testcase các bạn hãy giúp Nam tìm ra giá bán phù hợp.
 
 **INPUT**
 
-Một dãy số nguyên khác 0, mỗi số trên một hàng. Dãy số tận cùng bằng số 0
+Dòng đầu tiên là một số nguyên **q(1≤q≤100)**— số lượng testcase. Theo sau mỗi **q** dòng là:
+
+Dòng đầu tiên của testcase là một số nguyên **(1≤q≤100)** — số lượng hàng hóa. Dòng thứ hai 
+gồm **n**  số nguyên **a1,a2,...,an(1≤ai≤107)** —  **ai** giá gốc của hàng hóa thứ **i**.
 
 **OUTPUT**
 
-Số node lá trong cây
+Với mỗi testcase in ra giá bán đồng giá tối thiểu của n hàng hóa sao cho tổng số tiền thu được sau 
+khi bán hết hàng hóa có trong cửa hàng phải **bằng (hoặc lớn hơn tối thiểu)** so với tổng giá hàng hóa bán 
+với giá gốc.
 
-**VÍ DỤ**
+VÍ DỤ:
 
 | Input | Output |
-|:---:|:---:|
-| 393 
- 981 <br/>841 <br/> 133 <br/> 891 <br/> 739 <br/> 663 <br/> 119 <br/> 497 <br/> 865 <br/>54 <br/>631 <br/> 561 <br/>51<br/>227<br/>841 <br/>352 <br/>996 <br/>505 <br/>0 |5|
+|:---|:---:|
+| 3 <br/> 5 <br/> 1 2 3 4 5 <br/> 3 <br/> 1 2 2 <br/> 4 <br/> 1 1 1 1 |3 <br/> <br/> 2 <br/> <br/> 1|
 
-## Problem 6: [Tần Suất](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/Tan_Suat.py)
+
+## Problem 3:
+### [Xử lý chuỗi](Xu_Ly_Chuoi.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Viết chương trình nhập vào một dãy gồm **n** số và biến **k**. Đếm số lần xuất hiện của **k** trong dãy đó. 
+Bob đang tham dự một lớp học lập trình. Bài tập đầu tiên của Bob là viết một chương trình đơn giản. 
+Chương trình sẽ yêu cầu nhập một chuỗi, sau đó nếu có chữ viết hoa trong chuỗi thì thay thế chúng 
+bằng những chữ viết thường. Xóa hết tất cả các nguyên âm và chèn dấu "." trước mỗi phụ âm có trong
+chuỗi đó.
+
+Biết nguyên âm là những kí tự "A","O","Y","E","U","I", và những kí tự còn lại là phụ âm. Chương trình 
+sẽ nhận đầu vào là mỗi chuỗi và đầu ra là một chuỗi sau khi xử lí những yêu cầu trên.
+
+Bob đang loay hoay không biết làm bài này như thế nào. Bạn hãy giúp Bob nhé.
 
 **INPUT**
 
-Dòng đầu tiên gồm một số nguyên dương **q** — số lượng testcase. Theo sau mỗi testcase gồm:
-
-Dòng thứ nhất là hai số nguyên dương **n,k (1≤n≤1000),(−105≤k≤105)**— Số phần tử của 
-dãy và giá trị cần tìm vị trí.
-
-Dòng thứ hai là giá trị các phần tử trong dãy **a1,a2,...,an(−105≤ai≤105)**
+Dòng đầu tiên là một chuỗi gồm những cữ cái Latin viết hoa và viết thường, có độ dài từ 1 đến 100.
 
 **OUTPUT**
 
-Ứng với mỗi testcase, xuất ra trên một dòng số lần xuất hiện của **k**.
+Chuỗi kết quả.
 
-**VÍ DỤ**
+VÍ DỤ:
 
 | Input | Output |
-|:---:|:---:|
-|3 | |
-|5 4 | |
-|1 2 4 8 5 | 1|
-|4 15| 2|
-|15 5 15 5 | 0|
-|4 9 | |
-|4 4 5 5 | |
-|2 | |
-|1 -15 | |
-|15 | 0|
-|5 -99 | 5|
-|-99 -99 -99 -99 | |
+|:---|:---|
+| tour | .t.r|
+|aBAcAba |	.b.c.b |
+| pyThon |.p.t.h.n|
 
-
-
-## Problem 7: [Số Có Hậu](https://github.com/trankha1655/CS114_ML/blob/main/Assignments/Tu%E1%BA%A7n%201.2%20-%20t%C4%83ng%20t%E1%BB%91c%20t%E1%BB%AB%20t%E1%BB%AB/So_Co_Hau.py)
+## Problem 4:
+### [Ngôn ngữ của Lan](Ngon_Ngu_Cua_Lan.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Jim thích các phim và truyện kết thúc có hậu. Một lần gặp may với số n và từ đó Jim rất có cảm tình với tất cả 
-các số nguyên kết thúc bằng **n**, coi chúng là những số có hậu. Ví dụ với **n** = 25 thì các số 625, 
-553325,1025 là những số có hậu, còn 3255 – không có hậu!
+Lan đang học ở một trường ngoại ngữ ở Tp.HCM. Lan rất yêu thích ngôn ngữ, đặc biệt là ngữ pháp. 
+Khi  bước vào năm thứ 3, Lan quyết định tạo ra một ngôn ngữ mới dễ sử dụng nhất có thể đủ để 
+nói chuyện với bạn bè. Ngôn ngữ mới của Lan có tên là Lan's Language và thỏa theo những ngữ pháp sau:
 
-Jim không thích các ràng buộc và hạn chế. Nhưng trong thế giới thực của chúng ta ràng buộc và 
-hạn chế là điều tất yếu. Một người bạn của Jim khuyên chỉ nên quan tâm đến các số nguyên không vượt quá **m** 
-và dĩ nhiên, Jim muốn biết có bao nhiêu số có hậu không vượt quá **m**.
+  - Có 3 loại từ trong Lan's Language: danh từ, động từ và tính từ. Mỗi từ trong Lan's Language thuộc một trong 3 loại từ đó.
+  
+  - Có 2 giới tính: Nam và Nữ. Mỗi từ trong Lan's Language thuộc một trong 2 giới tính đó.
+  
+  - Tính từ nam là những từ kết thúc với -lios và Tính từ nữ là những từ kết thúc với -liala.
+  
+  - Danh từ nam là những từ kết thúc với -etr và  Danh từ nữ là những từ kết thúc với -etra.
+  
+  - Động từ nam là những từ kết thúc với -initis và  Động từ nữ là những từ kết thúc với -inites.
+  
+  - Các từ trong Lan's Language luôn kết thúc bằng 1 trong các đuôi trên.
+  
+  - Các từ mà chỉ có mỗi đuôi như "lios", "liala", "etr"... cũng thuộc Lan's Language.
+  
+  - Không có dấu câu, ngữ pháp chia thì và các dạng biến đổi từ trong Lan's Language.
+  
+  - Một câu trong Lan's Language là một từ hợp lệ (thỏa những tính chất trong Lan's Language) hoặc là một mệnh đề hợp lệ.
+  
+Một mệnh đề hợp lệ trong Lan's language phải thỏa 2 điều kiện sau:
 
-**INPUT**
-
-Vào từ thiết bị nhập chuẩn gồm một dòng chứa 2 số nguyên **n** và **m (1 ≤ n ≤ m ≤ 2×109)**.
+  Những từ trong mệnh đề phải hợp lệ và được sắp xếp theo thứ tự: Tính từ + Danh từ + Động từ. 
+  Trong đó: Tính từ có thể có 1 hoặc nhiều hoặc không có nhưng phải đứng trước Danh từ. Chỉ có
+  duy nhất một Danh từ trong câu. Động từ có thể có 1 hoặc nhiều hoặc không có nhưng phải
+  đứng sau Danh từ.
+  
+  Tất cả các từ trong mệnh đề phải cùng giới tính.
+Cho một câu gồm một chuỗi các từ, nhiệm vụ của bạn là viết một chương trình kiểm tra xem câu được nhập vào có thỏa mãn 
+những tính chất của Lan's language hay không? 
 
 **OUTPUT**
 
-Đưa ra thiết bị xuất chuẩn một số nguyên – số lượng số có hậu tìm được.
+Nếu câu nhập vào thỏa mãn những tính chất của Lan's language, xuất YES
+Ngược lại xuất NO
 
-**VÍ DỤ**
+
+VÍ DỤ:
 
 | Input | Output |
 |:---:|:---:|
-| 23 122 | 1|
+| petr| YES|
+| etis atis animatis etis atis amatis | NO|
+| nataliala kataliala vetra feinites | YES|
+
+## Problem 5:
+### [Rút Gọn Phân Số](Rut_Gon_Phan_So.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Viết chương trình rút gọn phân số.
+
+**INPUT**
+
+Dòng đầu tiên là một số nguyên **n(1≤n≤100)** — Số lượng phân số cần rút gọn
+
+n dòng tiếp theo là hai số nguyên **a,b(a,b≥1) — a,b** lần lượt là tử số và mẫu số.
+
+**OUTPUT**
+
+Ứng với **n** dòng, in ra theo thứ tự **tử số** và **mẫu số** (cách nhau một khoảng trắng) sau khi rút gọn; mẫu số
+chỉ được in khi lớn hơn 1.
+
+**VÍ DỤ:**
+
+| Input | Output |
+|:---|:---:|
+| 5<br/>6 8<br/>3 7<br/>5 10<br/>10 5<br/> 25 100 | 3 4 <br/>3 7<br/>1 2<br/>2<br/>1 4|
+
+## Problem 6: 
+### [Gọt Dưa](Got_Dua.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+An và Bình rất thích ăn dưa hấu vì thế họ đi ra chợ chọn mua một trái to và chín nhất.  Về đến nhà, một 
+vấn đề nảy sinh đó là việc chia phần trái dưa hấu cho cả 2, không chỉ thế, do 2 người bạn chỉ thích những 
+con số chẵn, vì thế cần chia quả dưa hấu làm sao cho mỗi phần có khối lượng là một con số chẵn. Hãy 
+giúp An và Bình kiểm tra xem có thể chia quả dưa hấu này hay không.
+
+**INPUT**
+
+Một số nguyên không âm
+
+**OUTPUT**
+
+Xuất **YES** nếu có thể chia, ngược lại **NO**
+
+**VÍ DỤ:**
+
+| **INPUT** | **OUTPUT** |
+|:---:|:---:|
+| **8** | **YES**|
+
+## Problem 7:
+### [Rap Phim](Rap_Phim.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Một rạp phim có diện tích sàn là n x m. Nhân lễ kỉ niệm, người ta cần lót gạch cho sàn của rạp bằng các 
+viên gạch hình vuông với cạnh có kích thước là a. Xác định số lượng viên gạch cần ít nhất để phủ toàn 
+bộ sàn, biết rằng diện tích toàn bộ số gạch được dùng có thể lớn hơn diện tích thực tế của sàn và 
+các viên gạch phải được giữ nguyên, không được cắt ra.
+
+**INPUT**
+
+Ba số nguyên dương **n**, **m**, **a**
+
+**OUTPUT**
+
+Số lượng gạch ít nhất cần để lót sàn.
+
+
+**VÍ DỤ:**
+
+|**INPUT** | **OUTPUT** |
+|:---:|:---:|
+| 6 6 4 | 4|
+
+## Problem 8: 
+### [Xếp Domino](Xep_Domino.py)
+**Time limit per test: ... second**
+
+**Memory limit per test: ... megabytes**
+
+Có một tấm ván gồm MxN hình vuông. Thêm vào đó, có thêm một số lượng không giới hạn các mảnh 
+domino với kích thước 2x1 hình vuông. Bạn được phép quay mảnh domino. Nhiệm vụ cần thực hiện là
+xếp nhiều mảnh domino nhất lên tấm ván sao cho thỏa các điều kiện sau:
+
+- Mỗi mảnh domino phủ toàn bộ 2 hình vuông
+
+- Không có mảnh nào bị xếp chồng lên nhau
+
+- Mỗi mảnh phải nằm toàn bộ trên mặt ván
+
+Tìm số lượng lớn nhất domino có thể xếp lên tấm ván.
+
+**INPUT**
+
+Hai số nguyên dương M, N
+
+**OUTPUT**
+
+Số lượng tối đa mảnh domino có thể xếp được lên tấm ván
+
+**VÍ DỤ**
+
+|**INPUT** | **OUTPUT** |
+|:---:|:---:|
+| 2 4 | 4|
+| 3 3 | 4|
+
+
+
+
+
+
+
 
 
 
