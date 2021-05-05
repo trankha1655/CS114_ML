@@ -286,7 +286,7 @@ Ví dụ,  **n** = 2 , bạn cần mua thêm 2 cây diêm nữa để xếp thà
 
 **n** = 5 , bạn cần mua thêm 1 cây diêm nữa để xếp thành **| | + | = | | |**.
 
-<img  src="xep_que_diem.png">
+<img  src="source/xep_que_diem.png">
 
 **INPUT**
 
