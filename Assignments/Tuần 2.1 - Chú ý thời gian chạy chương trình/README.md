@@ -3,279 +3,239 @@
 ## Progress
 |ID   | Problem | Status 
 |:---:|:---:|:---:|
-|1 | [Số amstrong](#problem-1) | 	:white_check_mark: 
-|2 |[Bán hàng](#problem-2)| :white_check_mark: 
-|3 | [	Xử lý chuỗi](#problem-3) | :white_check_mark:
-|4 | [	Ngôn ngữ của Lan](#problem-4)| :white_check_mark:
-|5 | [	Rút gọn phân số](#problem-5)| :white_check_mark:
-|6 | [Gọt dưa](#problem-6)| :white_check_mark:
-|7 | [	Rạp phim](#problem-7) | :white_check_mark:
+|1 | [	Tìm số gần nhất](#problem-1) | 	:white_check_mark: 
+|2 |[Thêm và xóa](#problem-2)| :white_check_mark: 
+|3 | [		Merge sorted array](#problem-3) | :white_check_mark:
+|4 | [	ROI (region of interest)](#problem-4)| :white_check_mark:
+|5 | [		Reshape matrix](#problem-5)| :white_check_mark:
+|6 | [	Online game](#problem-6)| :white_check_mark:
+|7 | [	Online game 2](#problem-7) | :white_check_mark:
 
 
 
 ## Problem 1:
-### [Số amstrong](So_Armstrong.py)
+### 
+# [	Tìm số gần nhất](Tim_So_Gan_Nhat.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
 
-Kiểm tra Số Armstrong (Số Armstrong là số có **K** chữ số và tổng lũy thừa bậc **K** của các chữ số bằng chính nó)
+Cho mảng số nguyên **A** đã sắp xếp tăng dần, tìm trong mảng **k** số có giá trị gần với giá trị **x** nhất.
 
 **INPUT**
 
-Một số nguyên không âm
+Dòng đầu tiên cho biết số phần tử của mảng
+
+Dòng thứ 2 là toàn bộ mảng liệt kê trên một hàng, các phần tử cách nhau bởi khoảng trắng
+
+Dòng cuối cùng lần lượt là 02 số **k** và **x**
 
 **OUTPUT**
 
-Xuất **True** nếu số nhập vào là số Armstrong, ngược lại **False**
+**k** số có giá trị gần với **x** nhất trong mảng. Các số này được xuất theo thứ tự tăng dần (trong trường hợp mảng có nhiều số có cùng khoảng cách tới **x**, ưu tiên chọn số có giá trị nhỏ hơn)
 
 | Input | Output |
-|:---:|:---:|
-| 153 | True|
+|:---|:---|
+|16 <br/> 228 230 232 232 233 233 235 237 239 239 239 241 243 245 246 247 <br/> 5 398| 241 243 245 246 247|
+|12 <br/> 26619 26620 26621 26622 26623 26625 26626 26626 26627 26628 26628 26629 <br/> 5 4146| 26619 26620 26621 26622 26623|
+|5<br/> 1 2 4 7 10 <br/>3 4| 1 2 4|
 
 ## Problem 2: 
-### [Bán Hàng](Ban_Hang.py)
+### [	Thêm và xóa](Them_Va_Xoa.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Nam đang là quản lí một cửa hàng nhỏ trong thị trấn. Cửa hàng của Nam có **n** hàng hóa, mỗi hàng hóa thứ **i** có giá **ai**
-đồng,
+Không chỉ thuận tiện khi bổ sung phần tử, danh sách liên kết còn hiệu quả khi xóa bỏ phần tử ở đầu danh sách, cuối danh sách hoặc một vị trí đã xác định trong danh sách.
 
-Mỗi ngày, có rất nhiều khách hàng ghé cửa hàng của Nam và liên tục hỏi giá của từng sản phẩm. Do có quá nhiều hàng hóa nên Nam không thể nào nhớ hết giá của chúng. Vì thế, Nam đã quyết định bán đồng giá tất cả các hàng hóa trong cửa hàng của mình.
-
-Tuy nhiên, để không lỗ vốn, Nam muốn sau khi tất cả **n** hàng hóa trong cửa hàng được bán hết thì thu được tổng số tiền **bằng (hoặc lớn hơn)** so với tổng giá hàng hóa bán với giá gốc.
-
-Mặt khác, Nam không muốn mất khách nếu giá bán quá lớn. Vì vậy, Nam phải bán **n** hàng hóa với giá **tối thiểu** sao cho tổng số tiền thu được sau khi bán hết hàng hóa có trong cửa hàng phải **bằng (hoặc lớn hơn tối thiểu)** so với tổng giá hàng hóa bán với giá gốc.
-
-Với mỗi testcase các bạn hãy giúp Nam tìm ra giá bán phù hợp.
+Hãy viết chương trình thực hiện các thao tác trên:
 
 **INPUT**
 
-Dòng đầu tiên là một số nguyên **q(1≤q≤100)**— số lượng testcase. Theo sau mỗi **q** dòng là:
+Input gồm nhiều dòng, mỗi dòng sẽ có cấu trúc ở một trong 7 dạng sau:
 
-Dòng đầu tiên của testcase là một số nguyên **(1≤q≤100)** — số lượng hàng hóa. Dòng thứ hai 
-gồm **n**  số nguyên **a1,a2,...,an(1≤ai≤107)** —  **ai** giá gốc của hàng hóa thứ **i**.
+- Dạng 0: Dòng bắt đầu bằng con số 0, theo sau là một số nguyên dương < 1000, chương trình cần phải thêm con số này vào đầu danh sách
+- Dạng 1: Dòng này bắt đầu bằng con số 1, theo sau là một số nguyên dương < 1000, chương trình cần phải thêm con số này vào cuối danh sách
+- Dạng 2: Dòng này bắt đầu bằng con số 2, theo sau là 2 số nguyên **a, b** < 1000, chương trình cần tìm vị trí đầu tiên mà số **a** xuất hiện trong danh sách, sau đó thêm số **b** vào sau số này. Nếu số **a** không có trong danh sách, thêm **b** vào đầu danh sách
+- Dạng 3: Dòng này bắt đầu bằng con số 3, theo sau là một số nguyên dương **n** < 1000. Chương trình cần tìm số **n** đầu tiên trong danh sách và xóa số này.
+- Dạng 4: Dòng này bắt đầu bằng con số 4, theo sau là một số nguyên dương **n** < 1000. Chương trình cần xóa tất cả số mang giá trị **n** ra khỏi danh sách.
+- Dạng 5: Dòng này bao gồm con số 5, khi gặp dòng này, chương trình sẽ xóa số đầu tiên trong danh sách.
+- Dạng 6: Dòng này bao gồm một con số 6. Đây là dòng cuối cùng trong input, báo hiệu input kết thúc
 
 **OUTPUT**
 
-Với mỗi testcase in ra giá bán đồng giá tối thiểu của n hàng hóa sao cho tổng số tiền thu được sau 
-khi bán hết hàng hóa có trong cửa hàng phải **bằng (hoặc lớn hơn tối thiểu)** so với tổng giá hàng hóa bán 
-với giá gốc.
+In danh sách thu được sau khi thực hiện tất cả các thao tác theo yêu cầu trong input. Danh sách được in trên một dòng với mỗi số cách nhau bởi khoảng trắng. Nếu danh sách rỗng, xuất ra chữ “blank” (không có ngoặc kép)
 
 VÍ DỤ:
 
 | Input | Output |
 |:---|:---:|
-| 3 <br/> 5 <br/> 1 2 3 4 5 <br/> 3 <br/> 1 2 2 <br/> 4 <br/> 1 1 1 1 |3 <br/> <br/> 2 <br/> <br/> 1|
+| 1 7<br/>3 3<br/>2 0 9<br/>3 3<br/>1 1<br/>5<br/>1 4<br/>1 4<br/>4 9<br/>0 1<br/>5<br/>0 3<br/>0 3<br/>5<br/>2 6 0<br/>5<br/>0 7<br/>4 8<br/>1 2<br/>1 0<br/>2 9 0<br/>2 1 8<br/>3 5<br/>3 0<br/>5<br/>4 1<br/>1 1<br/>1 7<br/>4 2<br/>2 7 5<br/>0 0<br/>1 3<br/>0 3<br/>3 6<br/>5<br/>2 1 9<br/>5<br/>5<br/>6 |7 5 8 4 4 0 1 9 7 3|
+| 5<br/>1 6<br/>2 6 3<br/>5<br/>3 8<br/>0 0<br/>3 7<br/>0 9<br/>1 6<br/>5<br/>0 9<br/>2 6 9<br/>1 2<br/>1 1<br/>1 4<br/>5<br/>4 5<br/>1 6<br/>0 3<br/>2 9 3<br/>6 |3 0 3 6 9 3 2 1 4 6|
+### ***GHI CHÚ***: 
+Sinh viên chỉ được phép include thư viện nhập/xuất (iostream và cstdio) khi làm bài.
 
 
 ## Problem 3:
-### [Xử lý chuỗi](Xu_Ly_Chuoi.py)
+### [	Merge sorted array](Merge_Sorted_Array.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Bob đang tham dự một lớp học lập trình. Bài tập đầu tiên của Bob là viết một chương trình đơn giản. 
-Chương trình sẽ yêu cầu nhập một chuỗi, sau đó nếu có chữ viết hoa trong chuỗi thì thay thế chúng 
-bằng những chữ viết thường. Xóa hết tất cả các nguyên âm và chèn dấu "." trước mỗi phụ âm có trong
-chuỗi đó.
-
-Biết nguyên âm là những kí tự "A","O","Y","E","U","I", và những kí tự còn lại là phụ âm. Chương trình 
-sẽ nhận đầu vào là mỗi chuỗi và đầu ra là một chuỗi sau khi xử lí những yêu cầu trên.
-
-Bob đang loay hoay không biết làm bài này như thế nào. Bạn hãy giúp Bob nhé.
-
+Cho 2 dãy số nguyên ***a*** có ***na*** số và ***b*** có ***nb*** số, mỗi dãy đã được sắp xếp theo thứ tự tăng dần. Hãy trộn hai dãy này lại để kết quả cuối cùng là một dãy tăng dần với  các phần tử là các phần tử của ***a*** và ***b***.
 **INPUT**
 
-Dòng đầu tiên là một chuỗi gồm những cữ cái Latin viết hoa và viết thường, có độ dài từ 1 đến 100.
+Dòng đầu tiên chứa kích thước của hai mảng nhập vào ***na, nb (0 < na, nb <= 100000)***
+
+Hai dòng tiếp theo lần lượt chứa các phần tử của mảng ***a*** và ***b***
 
 **OUTPUT**
-
-Chuỗi kết quả.
+Như ví dụ
 
 VÍ DỤ:
 
 | Input | Output |
 |:---|:---|
-| tour | .t.r|
-|aBAcAba |	.b.c.b |
-| pyThon |.p.t.h.n|
+| 4 5<br/>1 2 4 9<br/>8 10 20 22 30| 1 2 4 8 9 10 20 22 30|
+|5 3<br/>1 1 1 2 10<br/>3 4 100|	1 1 1 2 3 4 10 100 |
 
 ## Problem 4:
-### [Ngôn ngữ của Lan](Ngon_Ngu_Cua_Lan.py)
+### [ROI (region of interest)](ROI.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Lan đang học ở một trường ngoại ngữ ở Tp.HCM. Lan rất yêu thích ngôn ngữ, đặc biệt là ngữ pháp. 
-Khi  bước vào năm thứ 3, Lan quyết định tạo ra một ngôn ngữ mới dễ sử dụng nhất có thể đủ để 
-nói chuyện với bạn bè. Ngôn ngữ mới của Lan có tên là Lan's Language và thỏa theo những ngữ pháp sau:
+Trong xử lý ảnh y khoa, người ta đôi lúc chỉ quan tâm đến một vùng nhỏ của bức ảnh. Với đầu vào là một bức ảnh nhị phân I với các điểm màu trắng (nhận giá trị 1) thể hiện các vùng tế bào có khả năng bị ung thư, các vùng màu đen (nhận giá trị 0) là các vùng không có dấu hiệu của ung thư. Biết chiều cao và chiều rộng của ảnh, hãy giúp các bác sĩ xác định các tế bào có khả năng bị ung thư trong vùng quan tâm của họ biết tọa độ góc trái trên và phải dưới của vùng này lần lượt là (top, left) và (bottom, right).
 
-  - Có 3 loại từ trong Lan's Language: danh từ, động từ và tính từ. Mỗi từ trong Lan's Language thuộc một trong 3 loại từ đó.
-  
-  - Có 2 giới tính: Nam và Nữ. Mỗi từ trong Lan's Language thuộc một trong 2 giới tính đó.
-  
-  - Tính từ nam là những từ kết thúc với -lios và Tính từ nữ là những từ kết thúc với -liala.
-  
-  - Danh từ nam là những từ kết thúc với -etr và  Danh từ nữ là những từ kết thúc với -etra.
-  
-  - Động từ nam là những từ kết thúc với -initis và  Động từ nữ là những từ kết thúc với -inites.
-  
-  - Các từ trong Lan's Language luôn kết thúc bằng 1 trong các đuôi trên.
-  
-  - Các từ mà chỉ có mỗi đuôi như "lios", "liala", "etr"... cũng thuộc Lan's Language.
-  
-  - Không có dấu câu, ngữ pháp chia thì và các dạng biến đổi từ trong Lan's Language.
-  
-  - Một câu trong Lan's Language là một từ hợp lệ (thỏa những tính chất trong Lan's Language) hoặc là một mệnh đề hợp lệ.
-  
-Một mệnh đề hợp lệ trong Lan's language phải thỏa 2 điều kiện sau:
+<img  src="ROI.png">
 
-  Những từ trong mệnh đề phải hợp lệ và được sắp xếp theo thứ tự: Tính từ + Danh từ + Động từ. 
-  Trong đó: Tính từ có thể có 1 hoặc nhiều hoặc không có nhưng phải đứng trước Danh từ. Chỉ có
-  duy nhất một Danh từ trong câu. Động từ có thể có 1 hoặc nhiều hoặc không có nhưng phải
-  đứng sau Danh từ.
-  
-  Tất cả các từ trong mệnh đề phải cùng giới tính.
-Cho một câu gồm một chuỗi các từ, nhiệm vụ của bạn là viết một chương trình kiểm tra xem câu được nhập vào có thỏa mãn 
-những tính chất của Lan's language hay không? 
+**INPUT**
 
+h, w: lần lượt là chiều cao vào chiều rộng của ảnh
+
+h dòng tiếp theo, mỗi dòng chứa w số nhận giá trị là 0 hoặc 1 chính là bức ảnh các bác sĩ đang xem xét
+
+top, left, bottom, right: lần lượt là toạ độ trên, trái, phải, dưới của vùng được quan tâm
 **OUTPUT**
 
-Nếu câu nhập vào thỏa mãn những tính chất của Lan's language, xuất YES
-Ngược lại xuất NO
+Một bức ảnh nhị phân có kích thước (h,w) tương tự ảnh đầu vào 
+
+với các tế bào ung thư nằm ngoài vùng quan tâm được chuyển thành giá trị 0 (màu đen)
 
 
 VÍ DỤ:
 
 | Input | Output |
 |:---:|:---:|
-| petr| YES|
-| etis atis animatis etis atis amatis | NO|
-| nataliala kataliala vetra feinites | YES|
+| 3 4<br/>0 1 0 1<br/>1 1 1 0<br/>0 1 1 0<br/>0 0 2 2| 0 1 0 0<br/>1 1 1 0<br/>0 1 1 0|
+
+
 
 ## Problem 5:
-### [Rút Gọn Phân Số](Rut_Gon_Phan_So.py)
+### [Reshape matrix](Reshape_Matrix.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Viết chương trình rút gọn phân số.
+Cho một ma trận có kích thước mxn và hai biến r,c tương ứng với số dòng và số cột muốn reshape.
+
+Ma trận được reshape có kích thước rxc và được điền đầy đủ các phần tử của ma trận gốc theo chiều ngang.
+
+Nếu có thể reshape được ma trận, xuất ra ma trận mới.
+
+Ngược lại, xuất ma trận gốc.
+
+ 
 
 **INPUT**
 
-Dòng đầu tiên là một số nguyên **n(1≤n≤100)** — Số lượng phân số cần rút gọn
+Dòng đầu tiên gồm hai số nguyên dương ***n , m ( 2 ≤ n , m ≤ 3000 )*** — Theo thứ tự là số hàng,cột của ma trận gốc.
 
-n dòng tiếp theo là hai số nguyên **a,b(a,b≥1) — a,b** lần lượt là tử số và mẫu số.
+Dòng thứ hai gồm hai số nguyên dương ***r , c*** — Theo thứ tự là số hàng,cột của ma trận muốn reshape thành. 
+
+***n*** dòng tiếp theo là giá trị từng hàng của ma trận gốc ***a1, a2, ..., am ( − 10 5 ≤ a i ≤ 10 5 )*** — Các phần tử cách nhau ***một khoảng trắng***.
 
 **OUTPUT**
 
-Ứng với **n** dòng, in ra theo thứ tự **tử số** và **mẫu số** (cách nhau một khoảng trắng) sau khi rút gọn; mẫu số
-chỉ được in khi lớn hơn 1.
+Nếu có thể reshape được ma trận, xuất ra ma trận mới.
+
+Ngược lại, xuất ma trận gốc.
 
 **VÍ DỤ:**
 
 | Input | Output |
-|:---|:---:|
-| 5<br/>6 8<br/>3 7<br/>5 10<br/>10 5<br/> 25 100 | 3 4 <br/>3 7<br/>1 2<br/>2<br/>1 4|
+|:---|:---|
+| 2 3<br/>3 2<br/>1 2 3<br/>4 5 6 |1 2<br/>3 4<br/>5 6|
+|3 3<br/>1 9<br/>5 7 9<br/>9 6 4<br/>3 5 8|5 7 9 9 6 4 3 5 8|
+|3 3<br/>1 8<br/>4 2 1<br/>3 8 9<br/>4 6 7 |4 2 1<br/>3 8 9<br/>4 6 7|
 
 ## Problem 6: 
-### [Gọt Dưa](Got_Dua.py)
+### [Online game](Online_Game.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-An và Bình rất thích ăn dưa hấu vì thế họ đi ra chợ chọn mua một trái to và chín nhất.  Về đến nhà, một 
-vấn đề nảy sinh đó là việc chia phần trái dưa hấu cho cả 2, không chỉ thế, do 2 người bạn chỉ thích những 
-con số chẵn, vì thế cần chia quả dưa hấu làm sao cho mỗi phần có khối lượng là một con số chẵn. Hãy 
-giúp An và Bình kiểm tra xem có thể chia quả dưa hấu này hay không.
+Khi làm việc với yêu cầu tìm kiếm, chúng ta có thể sử dụng thuật toán tìm kiếm nhị phân. Tuy nhiên thuật toán tìm kiếm nhị phân chỉ có thể chạy trên cấu trúc dữ liệu mảng và mảng đó phải được sắp xếp thứ tự. Việc sắp xếp thường có độ phức tạp khá cao, điển hình là trong trường hợp sau đây:
+
+Giả định công ty NaViGame đang duy trì một hệ thống server rất lớn đáp ứng cho hàng chục triệu acccount của các game thủ. Hệ thông server này duy trì một danh sách các game thủ đang online cho phép nhà quản trị có thể kiểm tra xem một game thủ bất kỳ nào đó có đang online hay không. Hãy giúp công ty NaViGame xây dựng module kiểm tra game thủ online này.
 
 **INPUT**
 
-Một số nguyên không âm
+Mỗi dòng của input chứa hai con số a và b. Số a có giá trị là 1 hoặc 2 đại diện cho hai tình huống là có game thủ đăng nhập vào hệ thống và người quản trị vừa nhập một yêu cầu kiểm tra. Số b là mã số của game thủ trong tình huống đó (giá trị b không quá 1 tỷ).
+
+Ví dụ như dòng: 1 565481 cho biết game thủ với mã số 465481 vừa mới đăng nhập vào hệ thống
+
+dòng: 2 87126 cho biết người quản trị muốn kiểm tra xem game thủ với mã số 87126 có đang online trong hệ thống hay không.
+
+Input sẽ kết thúc bằng dòng chỉ chứa một số 0.
 
 **OUTPUT**
 
-Xuất **YES** nếu có thể chia, ngược lại **NO**
+Ứng với mỗi yêu cầu kiểm tra của nhà quản trị xuất ra trên một dòng giá trị 0 nếu game thủ đó không online. Nếu game thủ đang online, xuất ra 1
 
 **VÍ DỤ:**
 
 | **INPUT** | **OUTPUT** |
-|:---:|:---:|
-| **8** | **YES**|
+|:---|:---:|
+| 1 1<br/>1 2<br/>1 3<br/>2 4<br/>2 1<br/>1 5<br/>0| 0<br/>1|
+|1 2<br/>2 3<br/>1 44<br/>1 5<br/>2 5<br/>2 1<br/>2 2<br/>1 3<br/>0|0<br/>1<br/>0<br/>1|
+
 
 ## Problem 7:
-### [Rap Phim](Rap_Phim.py)
+### [Online game 2](Online_Game_2.py)
 **Time limit per test: ... second**
 
 **Memory limit per test: ... megabytes**
 
-Một rạp phim có diện tích sàn là n x m. Nhân lễ kỉ niệm, người ta cần lót gạch cho sàn của rạp bằng các 
-viên gạch hình vuông với cạnh có kích thước là a. Xác định số lượng viên gạch cần ít nhất để phủ toàn 
-bộ sàn, biết rằng diện tích toàn bộ số gạch được dùng có thể lớn hơn diện tích thực tế của sàn và 
-các viên gạch phải được giữ nguyên, không được cắt ra.
+Nếu bạn có thể chèn thêm giá trị vào cây nhị phân thì chắc hẳn bạn cũng có thể xóa giá trị ra khỏi cây chứ nhỉ?
+
+Giả định công ty NaViGame đang duy trì một hệ thống server rất lớn đáp ứng cho hàng chục triệu acccount của các game thủ. Hệ thông server này duy trì một danh sách các game thủ đang online cho phép nhà quản trị có thể kiểm tra xem một game thủ bất kỳ nào đó có đang online hay không. Hãy giúp công ty NaViGame xây dựng module kiểm tra game thủ online này.
 
 **INPUT**
 
-Ba số nguyên dương **n**, **m**, **a**
+Mỗi dòng của input chứa hai con số a và b. Số a có giá trị là 1 hoặc 2 hoặc 3 đại diện cho các tình huống là có game thủ đăng nhập vào hệ thống, có game thủ đăng xuất khỏi hệ thống và người quản trị vừa nhập một yêu cầu kiểm tra. Số b là mã số của game thủ trong tình huống đó (giá trị b không quá 1 tỷ).
+
+Ví dụ như
+
+Dòng: 1 565481 cho biết game thủ với mã số 465481 vừa mới đăng nhập vào hệ thống
+
+Dòng: 2 87126 cho biết người quản trị muốn kiểm tra xem game thủ với mã số 87126 có đang online trong hệ thống hay không.
+
+Dòng: 3 48769 cho biết là game thủ có mã số 48769 vừa đăng xuất khỏi hệ thống.
+
+Input sẽ kết thúc bằng dòng chỉ chứa một số 0.
 
 **OUTPUT**
 
-Số lượng gạch ít nhất cần để lót sàn.
+Ứng với mỗi yêu cầu kiểm tra của nhà quản trị xuất ra trên một dòng giá trị 0 nếu game thủ đó không online. Nếu game thủ đang online, xuất ra 1
 
 
 **VÍ DỤ:**
 
 |**INPUT** | **OUTPUT** |
-|:---:|:---:|
-| 6 6 4 | 4|
-
-## Problem 8: 
-### [Xếp Domino](Xep_Domino.py)
-**Time limit per test: ... second**
-
-**Memory limit per test: ... megabytes**
-
-Có một tấm ván gồm MxN hình vuông. Thêm vào đó, có thêm một số lượng không giới hạn các mảnh 
-domino với kích thước 2x1 hình vuông. Bạn được phép quay mảnh domino. Nhiệm vụ cần thực hiện là
-xếp nhiều mảnh domino nhất lên tấm ván sao cho thỏa các điều kiện sau:
-
-- Mỗi mảnh domino phủ toàn bộ 2 hình vuông
-
-- Không có mảnh nào bị xếp chồng lên nhau
-
-- Mỗi mảnh phải nằm toàn bộ trên mặt ván
-
-Tìm số lượng lớn nhất domino có thể xếp lên tấm ván.
-
-**INPUT**
-
-Hai số nguyên dương M, N
-
-**OUTPUT**
-
-Số lượng tối đa mảnh domino có thể xếp được lên tấm ván
-
-**VÍ DỤ**
-
-|**INPUT** | **OUTPUT** |
-|:---:|:---:|
-| 2 4 | 4|
-| 3 3 | 4|
-
-
-
-
-
-
-
-
-
-
-
-
-
+|:---|:---:|
+| 1 1<br/>2 8<br/>1 5<br/>1 1<br/>1 0<br/>1 3<br/>3 7<br/>3 9<br/>1 3<br/>1 4<br/>2 1<br/>1 8<br/>1 7<br/>2 9<br/>1 7<br/>1 9<br/>1 8<br/>3 4<br/>3 8<br/>2 1<br/>1 8<br/>3 3<br/>1 2<br/>1 2<br/>3 4<br/>1 5<br/>1 8<br/>1 2<br/>1 3<br/>2 1<br/>1 8<br/>1 4<br/>1 7<br/>2 7<br/>3 2<br/>1 7<br/>1 7<br/>1 4<br/>3 5<br/>1 1<br/>1 8<br/>3 6<br/>0 |0<br/>1<br/>0<br/>1<br/>1<br/>1|
+|1 1<br/>1 3<br/>1 2<br/>1 4<br/>2 1<br/>1 1<br/>3 1<br/>2 1<br/>0|1<br/>0|
 
 
