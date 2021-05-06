@@ -55,7 +55,7 @@ Bấm link để down ví dụ:
 
 Bức hình sau minh họa cho 7 loại ống theo thứ từ từ 1 đến 7:
 
-<img  src="source/tho_sua_ong_nuoc1.png">
+<img  src="source/tho_sua_ong_nuoc_1.png">
 
 Một trạm bơm có thể kết nối với tối đa 4 đường ống dẫn đi 4 hướng xung quanh. Trên bản đồ, trạm bơm được đánh dấu bằng chữ cái in hoa. Mỗi trạm bơm phải bơm nước đến tối đa 4 hồ chứa, được đánh dấu bằng chữ cái in thường tương ứng.
 
@@ -82,7 +82,7 @@ VÍ DỤ:
 ### ***GHI CHÚ***: 
 Hệ thống đường ống trong ví dụ 1 có thể được minh họa bằng hình sau:
 
-<img  src="source/tho_sua_ong_nuoc2.png">
+<img  src="source/tho_sua_ong_nuoc_2.png">
 
 
 ## Problem 3:
