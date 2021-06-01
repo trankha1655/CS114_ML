@@ -32,9 +32,9 @@
 - [ ] **Week 4**
 
 ## [NoteBook Research](https://github.com/trankha1655/CS114_ML/tree/main/Colab%20Research)
-- [REGCONIZING HAND-WRITTEN DIGITS](https://github.com/trankha1655/CS114_ML/blob/main/Colab%20Research/Bai_Tap_Colab_So_1.ipynb)
-- 
-
+- [REGCONIZING HAND-WRITTEN DIGITS](/Colab_Research/Bai_Tap_Colab_So_1.ipynb)
+- [PREDICT EXECUTION TIME OF A PROGRAM](/Colab_Research/Bai_Tap_Colab_So_2.ipynb)
+- [PREDICT FINAL EXAMINATION'S SCORE OF IT001](/Colab_Research/Bai_Tap_Colab_So_3.ipynb)
 
 ## **ĐỒ ÁN CUỐI KÌ**
 <h1 align="center">
