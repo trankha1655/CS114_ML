@@ -1,32 +1,47 @@
 #  CRAWL DATA FROM NEWSPAPER WEB
 
-## Ví dụ 1: Dự đoán khả năng qua môn của một sinh viên
+## Các trang web lấy data:
+
+### is_sarcastic
+ - [**The Babylon Bee**](https://babylonbee.com/news)
+ - [**The Beaverton**](https://www.thebeaverton.com/)
+ - [**The New Yorker**](https://www.newyorker.com/)
+### is-not_sarcastic
+ - [**Euronews**](https://www.euronews.com)
+ - [**CityNews Toronto**](https://toronto.citynews.ca/category/national/)
+ - [**National Post**](https://nationalpost.com/)
  
+## Usage
+### Requirement
+ - pandas
+ - requests
+ - bs4
+ - tqdm
+ - datetime
 
-conda install pandas
-conda install requests
-conda install bs4
-conda install tqdm
-conda install datetime
+```
+$ conda install -r requirement.txt
+```
 
-
-
+### Crawl news from Web
+```
+#code by Kha
 python Crawl_by_Kha\Babylon_news.py
 python Crawl_by_Kha\beveaton_news.py
 python Crawl_by_Kha\citynews_news.py
-
+```
+```
+#code by Lam
 python Crawl_by_Lam\National_Post_news.py
-
+```
+```
+#code by Nghia
 python Crawl_by_Nghia\Euronews_news.py
-
 python Crawl_by_Nghia\The_Newyorker_news.py
-
+```
+```
+#merge all csv-file to one file
 python merge.py
+```
+## Nhận xét
 
-## Ví dụ 2: Dự đoán số tiền công ty bảo hiểm phải trả cho một người.
--
-
-
-## Ví dụ 3: Dự đoán lượng mưa trong năm tại BRVT
- 
-## Ví dụ 4: Dự đoán khả năng trúng tuyển vào trường ĐHCNTT
