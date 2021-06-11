@@ -54,5 +54,4 @@ Tổng kết quá trình thu thập tiêu đề bài báo, nhóm thu thập đư
 - National Post: 9999 tiêu đề
 - Euronews: 24002 tiêu đề
 
-Mỗi trang web có các cách crawl data khác nhau do tổ chức cấu trúc trang web khác nhau và nhóm sử dụng thư viện BeautifulSoup của python để crawl data trên các trang báo.
-
+Mỗi trang web có các cách crawl data khác nhau do tổ chức cấu trúc trang web khác nhau và nhóm sử dụng thư viện BeautifulSoup của python để crawl data trên các trang báo. Số lượng tiêu đề báo châm biếm ít hơn báo chính thống vì các trang chính thống đăng rất nhiều thông tin về nhiều lĩnh vực còn các trang châm biếm có số lượng báo ra mỗi ngày rất hạn chế.
