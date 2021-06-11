@@ -44,4 +44,15 @@ python Crawl_by_Nghia\The_Newyorker_news.py
 python merge.py
 ```
 ## Nhận xét
+Tổng kết quá trình thu thập tiêu đề bài báo, nhóm thu thập được tổng cộng 78234 tiêu đề bài báo. Trong đó:
+1. Các trang báo châm biếm:
+- The Babylon Bee: 3470 tiêu đề
+- The Baeverton: 5565 tiêu đề
+- Borowitz Report (Newyorker): 4420 tiêu đề
+2. Các trang báo chính thống:
+- CityNews: 30778 tiêu đề
+- National Post: 9999 tiêu đề
+- Euronews: 24002 tiêu đề
+
+Mỗi trang web có các cách crawl data khác nhau do tổ chức cấu trúc trang web khác nhau và nhóm sử dụng thư viện BeautifulSoup của python để crawl data trên các trang báo.
 
