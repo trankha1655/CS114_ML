@@ -43,6 +43,10 @@ python Crawl_by_Nghia\The_Newyorker_news.py
 #merge all csv-file to one file
 python merge.py
 ```
+```
+#convert csv to json
+python convert_csv_to_json.py
+```
 ## Nhận xét
 Tổng kết quá trình thu thập tiêu đề bài báo, nhóm thu thập được tổng cộng 78234 tiêu đề bài báo. Trong đó:
 1. Các trang báo châm biếm:
