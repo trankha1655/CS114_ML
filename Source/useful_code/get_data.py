@@ -27,7 +27,7 @@ def getPaths(path):
 
     dir_label= ex2
 
-    dir_cams = ['Binh_s cam', 'Ti_s cam', 'Kha_s cam']
+    dir_cams = ['Binh_s cam', 'Kha_s cam', 'Ti_s cam']
 
     
 

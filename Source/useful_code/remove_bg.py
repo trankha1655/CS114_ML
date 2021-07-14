@@ -13,6 +13,7 @@ import time
 import tensorflow as tf
 
 
+os.chdir("../../../")
 
 segmentation_models.set_framework('tf.keras')
 model = Unet( encoder_weights='imagenet')
