@@ -25,7 +25,7 @@ y_test=[]
 
 for label in dir_label:
     
-    dir_img = [os.path.join(label,"{}",x) for x in os.listdir(path.format(label)) if "Still" in x]
+    dir_img = [ label+"/{}/"+x for x in os.listdir(path.format(label)) if "Still" in x]
 
     random.shuffle(dir_img)
    
