@@ -15,7 +15,7 @@ import albumentations as A
 import cv2
 
 
-def getPaths(path): 
+def getPaths(path,one_view=False): 
     
     dir_label= os.listdir(path)
     
@@ -27,11 +27,15 @@ def getPaths(path):
 
     dir_label= ex2
 
+    
     dir_cams = ['Binh_s cam', 'Kha_s cam', 'Ti_s cam']
 
     
 
-    cam= dir_cams[0]
+    if one_view:
+        cam =""
+    else:
+        cam= dir_cams[0]
     X_dir=[]
     y_label=[]
     for label in dir_label:
@@ -50,8 +54,11 @@ def getPaths(path):
     # One-hot encoding/
     
 
-
+    
     return dir_cams,np.array(X_dir), np.array(y_label)
+
+
+
 
 class ProteinDataGenerator(Sequence):
             
