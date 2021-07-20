@@ -107,7 +107,7 @@ def split_oneside():
         temp=[]
         y_ = []
         for label in dir_label:
-            dir_img = [ "{}/test"+label + x for x in os.listdir(path.format("crop_mask","test",label)) \
+            dir_img = [ "{}/test/"+label +"/"+ x for x in os.listdir(path.format("crop_mask","test",label)) \
                                 if "Still" in x]
             
             temp+= dir_img
@@ -175,11 +175,11 @@ def split_oneside():
 
     df_test= get_test()
 
-    df_train, df_val = get_train_val()
+    #df_train, df_val = get_train_val()
 
     df_test.to_csv("Dataset/one_side/test.csv")
-    df_train.to_csv("Dataset/one_side/train.csv")
-    df_val.to_csv("Dataset/one_side/val.csv")
+    #df_train.to_csv("Dataset/one_side/train.csv")
+    #df_val.to_csv("Dataset/one_side/val.csv")
 
     
 
