@@ -13,7 +13,7 @@ def split_img():
     dir_cams = ['Binh_s cam', 'Ti_s cam', 'Kha_s cam']
 
 
-    path="Dataset/{}/Binh_s cam"
+    path="Dataset/crop_mask/{}/Binh_s cam"
     print(path)
 
     X_train =[]
@@ -190,7 +190,7 @@ def split_oneside():
 #le = LabelEncoder()
 #labels = le.fit_transform(y_label)
 # One-hot encoding/
-split_oneside()
+split_img()
 
 
 #return dir_cams,np.array(X_dir), np.array(y_label)
