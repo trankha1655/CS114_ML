@@ -28,6 +28,25 @@ model.load_weights("CS114_ML/Source/Model/unet_bg_vgg.h5")
 #-----------------------------------------\
 
 #/ read path and create storing folder_____
+dir_label= ['label_1', 'label_2', 'label_3']
+dir_cams = ['Binh_s cam', 'Ti_s cam', 'Kha_s cam']
+
+temp = "CS114_ML\Dataset\crop_mask"
+
+if os.path.exists(temp) is False:
+        os.mkdir(temp)
+
+    #creat 3 folder : label1-3
+for label in dir_label:
+    if os.path.exists(os.path.join(temp,label)) is False:
+        os.mkdir(os.path.join(temp,label))
+            
+    #creat 3 cam in each other label
+for label in dir_label:
+    for cam in dir_cams:
+        if os.path.exists(os.path.join(temp,label,cam)) is False:
+            os.mkdir(os.path.join(temp,label,cam))
+
 
 def crop_img_3side(model):
 
@@ -49,24 +68,7 @@ def crop_img_3side(model):
 
 
     #creat folder Dataset/crop_mask   if doesnt exist
-    if os.path.exists(temp) is False:
-        os.mkdir(temp)
-
-    #creat 3 folder : label1-3
-    for label in list_label:
-        if not os.path.exists(os.path.join(temp,label)):
-            os.mkdir(os.path.join(temp,label))
-            
-    #creat 3 cam in each other label
-    for label in list_label:
-        for cam in cams:
-            if not os.path.exists(os.path.join(temp,label,cam)):
-                os.mkdir(os.path.join(temp,label,cam))
-
-
-
-
-
+    
 
 
 
@@ -211,6 +213,6 @@ def crop_img_1side(model):
     print("{} img was processed in {}".format(count,then-then))
 
 
-crop_img_1side(model)
+crop_img_3side(model)
 
     
