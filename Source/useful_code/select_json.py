@@ -18,6 +18,6 @@ for cam in dir_cams:
         for x in img_paths:
             for cam1 in dir_cams:
                 if not os.path.exists(x.format(cam1)):
-                    print(x)
+                    print(x.format(cam1))
 
         print("end.")

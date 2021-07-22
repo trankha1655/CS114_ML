@@ -5,7 +5,21 @@ import pandas
 import numpy as np
 
 
+
+
 def split_img():
+
+    def cut_sort(path,label):
+        dirs= os.listdir(path.format(label))
+        frames= [x.split('.')[1] for x in dirs]
+        a,b = zip(*sorted(zip(frames,dirs)))
+
+        dir_img= [ label+"/{}/"+x for x in b]
+        return dir_img
+
+
+        
+
     os.chdir("../../")
 
 
@@ -27,22 +41,32 @@ def split_img():
 
     for label in dir_label:
         
-        dir_img = [ label+"/{}/"+x for x in os.listdir(path.format(label)) if "Still" in x]
-
-        random.shuffle(dir_img)
+        dir_img = cut_sort(path,label)
+        
     
         categ   = [label] * len(dir_img)
 
         n = len(dir_img)
+        ntr= int(n*0.7)
+        
 
-        X_test += dir_img[: int(0.1*n)] 
-        y_test += [label] * len(dir_img[: int(0.1*n)])
+        
 
-        X_val += dir_img[ int(0.1*n): int(0.22*int(0.9*n))+int(0.1*n)]
-        y_val += [label] * len(dir_img[ int(0.1*n): int(0.22*int(0.9*n))+int(0.1*n)])
+        X_train += dir_img[:ntr] 
+        y_train += [label] * (ntr)
 
-        X_train += dir_img[int(0.22*int(0.9*n))+int(0.1*n):] 
-        y_train += [label] * len(dir_img[int(0.22*int(0.9*n))+int(0.1*n):])
+        remain= dir_img[ntr:]
+        random.shuffle(remain)
+        
+        nval = int(len(remain)*0.65)
+
+        X_val += remain[ :nval ]
+        y_val += [label] * nval
+
+        X_test += remain[nval:] 
+        y_test += [label] * len(remain[nval:])
+
+        
 
 
     print(len(X_train))
