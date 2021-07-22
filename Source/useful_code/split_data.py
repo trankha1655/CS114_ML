@@ -42,7 +42,7 @@ def split_img():
     for label in dir_label:
         
         dir_img = cut_sort(path,label)
-        
+        random.shuffle(dir_img)
     
         categ   = [label] * len(dir_img)
 
@@ -56,7 +56,7 @@ def split_img():
         y_train += [label] * (ntr)
 
         remain= dir_img[ntr:]
-        random.shuffle(remain)
+        
         
         nval = int(len(remain)*0.65)
 
