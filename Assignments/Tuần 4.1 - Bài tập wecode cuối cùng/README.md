@@ -6,7 +6,7 @@
 |1 | [		Wrap line](#problem-1) | 	:x:
 |2 |[thợ sửa ống nước](#problem-2)| :white_check_mark: 
 |3 | [		game con rắn](#problem-3) | :white_check_mark:
-|4 | [	rubik tứ diện](#problem-4)| :x:
+|4 | [	rubik tứ diện](#problem-4)| :white_check_mark:
 
 
 ## Problem 1:
