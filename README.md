@@ -29,13 +29,13 @@
 - [x] [**Week 3.1 - Ôn tiếp cấu trúc dữ liệu**](https://github.com/trankha1655/CS114_ML/tree/main/Assignments/Tu%E1%BA%A7n%203.1%20-%20%C3%94n%20ti%E1%BA%BFp%20c%E1%BA%A5u%20tr%C3%BAc%20d%E1%BB%AF%20li%E1%BB%87u) : :heavy_check_mark: 7/7 finish
 
 
-- [ ] **Week 4**
+- [x] [**Week 4 - Bài tập wecode cuối cùng**](https://github.com/trankha1655/CS114_ML/tree/main/Assignments/Tu%E1%BA%A7n%204.1%20-%20B%C3%A0i%20t%E1%BA%ADp%20wecode%20cu%E1%BB%91i%20c%C3%B9ng) : :heavy_check_mark: 3/4 finish
 
 ## [NoteBook Research](https://github.com/trankha1655/CS114_ML/tree/main/Colab%20Research)
 - [REGCONIZING HAND-WRITTEN DIGITS](/Colab_Research/Bai_Tap_Colab_So_1.ipynb)
 - [PREDICT EXECUTION TIME OF A PROGRAM](/Colab_Research/Bai_Tap_Colab_So_2.ipynb)
 - [PREDICT FINAL EXAMINATION'S SCORE OF IT001](/Colab_Research/Bai_Tap_Colab_So_3.ipynb)
-
+- [SARCASM DETECTION IN NEWS HEADLINE](/Colab_Research/Bai_tap_colab_so_4.ipynb)
 ## **ĐỒ ÁN CUỐI KÌ**
 <h1 align="center">
 
