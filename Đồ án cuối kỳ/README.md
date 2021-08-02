@@ -72,3 +72,26 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 </p>
 
 # Chương 3: Xây dựng bộ dữ liệu
+
+## Thu thập dữ liệu
+
+1. Để mô phỏng cho các ứng dụng phân loại thực tế trong xí nghiệp và vựa trái cây có băng chuyền, nhóm quyết định hàn khung sắt mô phỏng băng chuyền, thiết lập 3 vị trí camera cố định quay 3 mặt của trái thanh long.
+2. Đặt lần lượt từng quả thanh long lên băng chuyền mô phỏng trong lúc camera đang quay.
+3. Trích xuất video từ 3 camera, sau đó đồng bộ 3 đoạn video theo cùng thời gian bằng phần mềm Premiere và cắt từng frame có chứa quả thanh long ra. Một tập dữ liệu của một quả thanh long gồm 3 tấm ảnh độ phân giải 720p.
+
+<p float="left">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Binh_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Kha_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Ti_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
+<p align="center">
+  <em>Một tập dữ liệu của một quả thanh long</em>
+</p>
+
+4. Tiến hành gán nhãn dữ liệu, có 3 nhãn tương ứng với 3 folder, mỗi folder chứa 3 folder con với mỗi folder trong này chứa ảnh được cắt ra từ camera tương ứng.
+
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Folder_Hierarchy.png">
+<p align="center">
+  <em>Cấu trúc thư mục chứa dữ liệu</em>
+</p>
+
