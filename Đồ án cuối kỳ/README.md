@@ -105,6 +105,14 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   + Khoảng 400 tập thuộc label 2
   + Khoảng 320 tập thuộc label 1
 
+<p float="left">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
+<p align="center">
+  <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
+</p>
+
 ## Tiền xử lý dữ liệu: Sử dụng 2 phương pháp
 - Xóa background của ảnh, chỉ giữ phần quả thanh long để train
 <p float="left">
