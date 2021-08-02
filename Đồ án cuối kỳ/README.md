@@ -112,7 +112,7 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
 </p>  
-- Sử dụng labelme để viền phần trái và dán nhãn
+- Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
   <p float="left">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Binh_cam_labelme.jpg" width="300" />
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Kha_cam_labelme.jpg" width="300" /> 
