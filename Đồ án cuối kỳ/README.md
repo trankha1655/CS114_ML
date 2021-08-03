@@ -39,9 +39,9 @@ Hiện nay, các vựa thanh long truyền thống trên cả nước phần l�
 Ba ảnh trích xuất từ 3 góc của camera với độ phân giải mỗi ảnh là 720p (1280 x 720 pixels). Mỗi ảnh chụp một mặt của cùng một quả thanh long
 
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
 </p>
 
 Input ở trên dựa vào ngữ cảnh quả thanh long trên băng chuyền rửa quả thanh long. Từng trái thanh long sẽ lần lượt đi theo băng chuyền đi qua khu vực phân loại có đặt sẵn các camera với 2 camera nằm phía trên bên trái và bên phải cùng với một camera nằm ở dưới có ống kính hướng lên. Ánh sáng của ảnh được quay lúc trời quang đãng, ánh sáng rõ ràng, không quá chói.
