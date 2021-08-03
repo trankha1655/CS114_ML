@@ -80,9 +80,9 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 3. Trích xuất video từ 3 camera, sau đó đồng bộ 3 đoạn video theo cùng thời gian bằng phần mềm Premiere và cắt từng frame có chứa quả thanh long ra. Một tập dữ liệu của một quả thanh long gồm 3 tấm ảnh độ phân giải 720p.
 
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Binh_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Kha_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_3/Ti_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Binh_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Kha_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Ti_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
 <p align="center">
   <em>Một tập dữ liệu của một quả thanh long</em>
 </p>
@@ -106,9 +106,9 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   + Khoảng 320 tập thuộc label 1
 
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
 <p align="center">
   <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
 </p>
@@ -116,9 +116,9 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 ## Tiền xử lý dữ liệu: Sử dụng 2 phương pháp
 - Xóa background của ảnh, chỉ giữ phần quả thanh long để train
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
 </p>  
 
 - Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
@@ -132,16 +132,16 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 
 - Ảnh có chứa ngoại vật xen lẫn vào trái thanh long: tay, thanh sắt lúc chụp từ dưới lên.
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Ti_s%20cam/label_2.01_14_13_26.Still024.jpg" width="450" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Ti_s%20cam/label_2.01_13_44_28.Still008.jpg" width="450" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/label_2.01_14_13_26.Still024.jpg" width="450" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/label_2.01_13_44_28.Still008.jpg" width="450" /> 
   
   <p align="center">
   <em>Ngoại vật trong trường hợp này là tay người</em>
 </p>
 
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_21_23.Still054.jpg" width="450" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_21_23.Still054.jpg" width="450" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
     
   <p align="center">
   <em>Ngoại vật trong trường hợp này là sắt của băng chuyền</em>
@@ -149,10 +149,10 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 
 - Ảnh ở camera thứ hai (Kha_cam) có độ sáng cao hơn 2 ảnh ở camera còn lại do góc chụp từ dưới hướng lên trời.
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="900" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="900" />
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Ti_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Dataset/img/label_2/Binh_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Binh_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
 <p align="center">
   <em>Độ sáng của ảnh chụp từ dưới lên cao hơn 2 ảnh chụp ở 2 bên từ trên xuống</em>
 </p>
