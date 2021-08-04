@@ -90,7 +90,7 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 4. Tiến hành phân chia dữ liệu, có 3 nhãn tương ứng với 3 folder, mỗi folder chứa 3 folder con với mỗi folder trong này chứa ảnh được cắt ra từ camera tương ứng.
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Folder_Hierarchy.png">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Diagram.png">
 <p align="center">
   <em>Cấu trúc thư mục chứa dữ liệu</em>
 </p>
@@ -123,9 +123,9 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 
 - Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
   <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Binh_cam_labelme.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Kha_cam_labelme.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Image/Ti_cam_labelme.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Binh_cam_labelme.jpg" width="1000" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Kha_cam_labelme.jpg" width="1000" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Ti_cam_labelme.jpg" width="1000" />
 </p>
 
 ## Trường hợp dữ liệu khó xử lý
@@ -144,7 +144,7 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
     
   <p align="center">
-  <em>Ngoại vật trong trường hợp này là sắt của băng chuyền</em>
+  <em>Ngoại vật trong trường hợp này là thanh sắt của băng chuyền</em>
 </p>
 
 - Ảnh ở camera thứ hai (Kha_cam) có độ sáng cao hơn 2 ảnh ở camera còn lại do góc chụp từ dưới hướng lên trời.
