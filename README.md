@@ -39,7 +39,7 @@
 ## **ĐỒ ÁN CUỐI KÌ**
 <h1 align="center">
 
-  **["APPLICATION TO CATEGORIZE DRAGON FRUIT EXPORTAION"](Đồ%20án%20cuối%20kỳ/Dataset/)**
+  **["APPLICATION TO CATEGORIZE DRAGON FRUIT EXPORTAION"](Đồ%20án%20cuối%20kỳ/)**
   
 </h1>
 
