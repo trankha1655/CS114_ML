@@ -177,12 +177,12 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 
 ## Thông số bộ dữ liệu
 
-có 3 folder chính được tổ chức, đặt tên giống nhau:
+Có 3 folder chính được tổ chức, đặt tên giống nhau:
  
 
 ### Img
 
-chứa tất cả ảnh đã gắn nhãn như mô tả trên
+Chứa tất cả ảnh đã gắn nhãn như mô tả trên
 - Bộ dữ liệu ban đầu thu thập được khoảng 676 tập dữ liệu trái thanh long (1 tập dữ liệu có 3 ảnh) tương ứng với 2028 ảnh 1280x720x3.
   + 246 tập thuộc label 1
   + 210 tập thuộc label 2
@@ -202,32 +202,32 @@ chứa tất cả ảnh đã gắn nhãn như mô tả trên
 
 ### Json
 
-1299 folderchứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme]() để decode thành nparray nhị phân 1280x720:
+1299 folder chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme]() để decode thành nparray nhị phân 1280x720:
   + 433 file thuộc view Binh_s cam
   + 433 file thuộc view Kha_s cam
   + 433 file thuộc view Ti_s cam
 ### Crop_mask
 
-chứa tất cả 3360 ảnh đã gắn nhãn và đã được xóa background (đây là dữ liệu train cho mô hình phân loại) với shape: 320x640x3
+Chứa tất cả 3360 ảnh đã gắn nhãn và đã được xóa background (đây là dữ liệu train cho mô hình phân loại) với shape: 320x640x3
   + 406 tập thuộc label 1
   + 412 tập thuộc label 2
   + 301 tập thuộc label 3
 ### Csv
 
-chứa 2 loại:
-  - dữ liệu để phân loại, 1119 tập được trộn và chia 3 file csv:
+Chứa 2 loại:
+  - Dữ liệu để phân loại, 1119 tập được trộn và chia 3 file csv:
     + train.csv: 782 dòng
     + val.csv: 218 dòng
     + test.csv: 119 dòng
   <p float="left">
-    cột path chứa đường dẫn ảnh: <em> "img/label.../{}/image_name.jpg" </em> với {} lần lượt 3 tên cameras khi đọc ảnh.<br/>cột y dạng: "label..."
+    Cột path chứa đường dẫn ảnh: <em> "img/label.../{}/image_name.jpg" </em> với {} lần lượt 3 tên cameras khi đọc ảnh.<br/>Cột y dạng: "label..."
   </p>
   
-  - dữ liệu để semantic segmentation, 1299 tập được trộn và chia cho 2 file csv:
+  - Dữ liệu để semantic segmentation, 1299 tập được trộn và chia cho 2 file csv:
     + train_mask.csv: 1100 dòng
     + val_mask.csv: 199 dòng
   <p float="left">
-  cột <strong>"path"</strong> chứa đường dẫn ảnh: <em> "img/label.../cam.../image_name.jpg" </em> .<br/>cột <strong>"label"</strong> dạng: <em> "json/label.../cam.../image_name.json"
+  Cột <strong>"path"</strong> chứa đường dẫn ảnh: <em> "img/label.../cam.../image_name.jpg" </em> .<br/>Cột <strong>"label"</strong> dạng: <em> "json/label.../cam.../image_name.json"
   </p>
  
     
