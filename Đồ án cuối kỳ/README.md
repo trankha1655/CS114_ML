@@ -94,7 +94,16 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 <p align="center">
   <em>Cấu trúc thư mục chứa dữ liệu</em>
 </p>
-
+## Gắn nhãn dữ liệu
+### Lalel 1 - Loại đẹp 
+    *mô tả rồi thêm ảnh, tìm mấy trái trong label 1 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .................
+### Label 2 - Loại tiêu chuẩn
+     *mô tả rồi thêm ảnh, tìm mấy trái trong label 1 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .....................
+### Label 3 - Loại xấu
+       *mô tả rồi thêm ảnh, tìm mấy trái trong label 1 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .......................
 ## Thông số bộ dữ liệu
 - Bộ dữ liệu ban đầu thu thập được khoảng 676 tập dữ liệu trái thanh long (1 tập dữ liệu có 3 ảnh) tương ứng với 2028 ảnh 1280x720 pixels.
   + 246 tập thuộc label 1
