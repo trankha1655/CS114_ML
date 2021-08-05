@@ -95,6 +95,19 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   <em>Cấu trúc thư mục chứa dữ liệu</em>
 </p>
 
+## Gắn nhãn dữ liệu
+
+### Lalel 1 - Loại đẹp 
+    *mô tả rồi thêm ảnh, tìm mấy trái trong label 1 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .................
+   
+### Label 2 - Loại tiêu chuẩn
+     *mô tả rồi thêm ảnh, tìm mấy trái trong label 2 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .....................
+   
+### Label 3 - Loại xấu
+       *mô tả rồi thêm ảnh, tìm mấy trái trong label 2 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
+   .......................
 ## Thông số bộ dữ liệu
 - Bộ dữ liệu ban đầu thu thập được khoảng 676 tập dữ liệu trái thanh long (1 tập dữ liệu có 3 ảnh) tương ứng với 2028 ảnh 1280x720 pixels.
   + 246 tập thuộc label 1
@@ -113,20 +126,25 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
   <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
 </p>
 
-## Tiền xử lý dữ liệu: Sử dụng 2 phương pháp
-- Xóa background của ảnh, chỉ giữ phần quả thanh long để train
+## Tiền xử lý dữ liệu: Sử dụng model Semantic Segmentation
+
+- Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
+  <p float="left">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Binh_cam_labelme.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Kha_cam_labelme.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Ti_cam_labelme.jpg" width="300" />
+</p>
+
+- Sử dụng các loại model Semantic Segmentation huấn luyện, tách phần background và giữ lại phần trái để huấn luyện cho mô hình phân loại
 <p float="left">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
 </p>  
 
-- Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
-  <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Binh_cam_labelme.jpg" width="1000" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Kha_cam_labelme.jpg" width="1000" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Ti_cam_labelme.jpg" width="1000" />
-</p>
+
+
+- 
 
 ## Trường hợp dữ liệu khó xử lý
 
