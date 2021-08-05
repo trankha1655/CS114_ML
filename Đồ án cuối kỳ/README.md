@@ -22,8 +22,8 @@
 
 
 ## **overwrite**
-* [Problem](chương-1-tổng-quan)
-* [Dataset](chương-3-xây-dựng-bộ-dữ-liệu)
+* [Problem](#chương-1-tổng-quan)
+* [Dataset](#chương-3-xây-dựng-bộ-dữ-liệu)
 * [Method](#)
 * [Predict & evaluate](#)
 * [References](#)
