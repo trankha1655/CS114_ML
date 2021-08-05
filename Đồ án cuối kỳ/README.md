@@ -116,23 +116,7 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 ### Label 3 - Loại xấu
        *mô tả rồi thêm ảnh, tìm mấy trái trong label 2 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
    .......................
-## Thông số bộ dữ liệu
-- Bộ dữ liệu ban đầu thu thập được khoảng 676 tập dữ liệu trái thanh long (1 tập dữ liệu có 3 ảnh) tương ứng với 2028 ảnh 1280x720 pixels.
-  + 246 tập thuộc label 1
-  + 210 tập thuộc label 2
-  + 220 tập thuộc label 3
-- Dữ liệu sau khi tăng cường bằng cách xoay thủ công trái thanh long trong quá trình quay video thu được khoảng 1120 tập dữ liệu trái thanh long tương ứng với khoảng 3360 ảnh 1280x720 pixels
-  + Khoảng 400 tập thuộc label 1
-  + Khoảng 400 tập thuộc label 2
-  + Khoảng 320 tập thuộc label 1
 
-<p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
-<p align="center">
-  <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
-</p>
 
 ## Tiền xử lý dữ liệu: Sử dụng model Semantic Segmentation
 
@@ -182,3 +166,60 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 <p align="center">
   <em>Độ sáng của ảnh chụp từ dưới lên cao hơn 2 ảnh chụp ở 2 bên từ trên xuống</em>
 </p>
+
+## Thông số bộ dữ liệu
+
+có 3 folder chính được tổ chức, đặt tên giống nhau:
+ 
+
+### Img
+
+chứa tất cả ảnh đã gắn nhãn như mô tả trên
+- Bộ dữ liệu ban đầu thu thập được khoảng 676 tập dữ liệu trái thanh long (1 tập dữ liệu có 3 ảnh) tương ứng với 2028 ảnh 1280x720x3.
+  + 246 tập thuộc label 1
+  + 210 tập thuộc label 2
+  + 220 tập thuộc label 3
+- Dữ liệu sau khi tăng cường bằng cách xoay thủ công trái thanh long trong quá trình quay video thu được khoảng 1120 tập dữ liệu trái thanh long tương ứng với khoảng 3360 ảnh 1280x720x3
+  + 406 tập thuộc label 1
+  + 412 tập thuộc label 2
+  + 301 tập thuộc label 3
+
+<p float="left">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
+<p align="center">
+  <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
+</p>
+
+### Json
+
+1299 folderchứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme]() để decode thành nparray nhị phân 1280x720:
+  + 433 file thuộc view Binh_s cam
+  + 433 file thuộc view Kha_s cam
+  + 433 file thuộc view Ti_s cam
+### Crop_mask
+
+chứa tất cả 3360 ảnh đã gắn nhãn và đã được xóa background (đây là dữ liệu train cho mô hình phân loại) với shape: 320x640x3
+  + 406 tập thuộc label 1
+  + 412 tập thuộc label 2
+  + 301 tập thuộc label 3
+### Csv
+
+chứa 2 loại:
+  - dữ liệu để phân loại, 1119 tập được trộn và chia 3 file csv:
+    + train.csv: 782 dòng
+    + val.csv: 218 dòng
+    + test.csv: 119 dòng
+  <p float="left">
+    cột path chứa đường dẫn ảnh: <em> "img/label.../{}/image_name.jpg" </em> với {} lần lượt 3 tên cameras khi đọc ảnh.<br/>cột y dạng: "label..."
+  </p>
+  
+  - dữ liệu để semantic segmentation, 1299 tập được trộn và chia cho 2 file csv:
+    + train_mask.csv: 1100 dòng
+    + val_mask.csv: 199 dòng
+  <p float="left">
+  cột <strong>"path"</strong> chứa đường dẫn ảnh: <em> "img/label.../cam.../image_name.jpg" </em> .<br/>cột <strong>"label"</strong> dạng: <em> "json/label.../cam.../image_name.json"
+  </p>
+ 
+    
