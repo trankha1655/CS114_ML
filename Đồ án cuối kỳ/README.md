@@ -68,7 +68,7 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 <p align="center">
   <img src="https://miro.medium.com/max/875/1*uyK6DmBr1OgrPYz-kKE0wQ.png">
 <p align="center">
-  <em>Multi-view image classification</em>
+  <em> 2.1. Multi-view image classification</em>
 </p>
 
 # Chương 3: Xây dựng bộ dữ liệu
@@ -79,27 +79,28 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 2. Đặt lần lượt từng quả thanh long lên băng chuyền mô phỏng trong lúc camera đang quay.
 3. Trích xuất video từ 3 camera, sau đó đồng bộ 3 đoạn video theo cùng thời gian bằng phần mềm Premiere và cắt từng frame có chứa quả thanh long ra. Một tập dữ liệu của một quả thanh long gồm 3 tấm ảnh độ phân giải 720p. Tên mỗi view được đặt tên trùng nhau. Tiện cho việc quản lí theo dõi. 
 
+
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/labeling1.jpg" width="450" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/labeling2.jpg" width="450" />
+<p align="center">
+  <em> 3.1. Quá trình thu thập dữ liệu</em>
+</p>
+
 <p align="center">
   <img src="storage/premiere_frames_export.gif" width="600" />
 <p align="center">
-  <em>Frames exporting by Premiere</em>
+  <em> 3.2. Xuất frames bằng premiere</em>
 </p>
 
 
-<p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Binh_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Kha_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_3/Ti_s%20cam/Binh_cam.00_28_00_24.Still111.jpg" width="300" />
-<p align="center">
-  <em>Một tập dữ liệu của một quả thanh long</em>
-</p>
 
 4. Tiến hành phân chia dữ liệu, có 3 nhãn tương ứng với 3 folder, mỗi folder chứa 3 folder con với mỗi folder trong này chứa ảnh được cắt ra từ camera tương ứng. 
 
 <p align="center">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Diagram.png">
 <p align="center">
-  <em>Cấu trúc thư mục chứa dữ liệu</em>
+  <em> 3.3. Cấu trúc thư mục chứa dữ liệu</em>
 </p>
 
 ## Gắn nhãn dữ liệu
