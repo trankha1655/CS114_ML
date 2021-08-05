@@ -39,7 +39,7 @@
 ## **ĐỒ ÁN CUỐI KÌ**
 <h1 align="center">
 
-  **"APPLICATION TO CATEGORIZE DRAGON FRUIT EXPORTAION"**
+  **["APPLICATION TO CATEGORIZE DRAGON FRUIT EXPORTAION"](Đồ%20án%20cuối%20kỳ/Dataset/)**
   
 </h1>
 
@@ -47,12 +47,3 @@
     PGS.TS. Lê Đình Duy - duyld@uit.edu.vn
     Ths. Phạm Nguyễn Trường An - truonganpn@uit.edu.vn
 
-
-
-
-### **overwrite**
-* [Problem](#)
-* [Dataset](#)
-* [Method](#)
-* [Predict & evaluate](#)
-* [References](#)
