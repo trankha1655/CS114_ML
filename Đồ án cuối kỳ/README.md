@@ -233,15 +233,49 @@ Chứa 2 loại:
     + train.csv: 782 dòng
     + val.csv: 218 dòng
     + test.csv: 119 dòng
-  <p float="left">
+<p float="left">
     Cột path chứa đường dẫn ảnh: <em> "img/label.../{}/image_name.jpg" </em> với {} lần lượt 3 tên cameras khi đọc ảnh.<br/>Cột y dạng: "label..."
-  </p>
+</p>
   
   - Dữ liệu để semantic segmentation, 1299 tập được trộn và chia cho 2 file csv:
     + train_mask.csv: 1100 dòng
     + val_mask.csv: 199 dòng
-  <p float="left">
-  Cột <strong>"path"</strong> chứa đường dẫn ảnh: <em> "img/label.../cam.../image_name.jpg" </em> .<br/>Cột <strong>"label"</strong> dạng: <em> "json/label.../cam.../image_name.json"
-  </p>
- 
-    
+<p float="left">
+  Cột <strong>"path"</strong> chứa đường dẫn ảnh: <em> "img/label.../cam.../image_name.jpg" </em> .<br/>Cột <strong>"label"</strong> dạng: <em> "json/label.../cam.../image_name.json" </em>.
+</p>
+
+# Chương 4: Training và đánh giá model
+## Cấu hình máy:
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Configuration.jpg">
+</p>
+
+## Training model để xóa background ảnh (Giai đoạn Preprocessing)
+Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
+
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/test_Unet%20(2).png",width=600>
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/test_Unet.png",width=600>
+  <br/>
+  <em>Xác định phần quả thanh long trên khung hình và tách ra khỏi ảnh (xóa background)</em>
+</p>
+
+### Mạng Unet
+Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
+- Encoder để giảm chiều dài và chiều rộng của ảnh, Encoder thường là các mạng CNN thông thường (nhóm sử dụng mạng VGG-16 cho phần Encoder)
+- Decoder để khôi phục kích thước ảnh gốc
+<p align="center">
+  <img src="https://camo.githubusercontent.com/41ded1456b9dbe13b8d73d8da539dac95cb8aa721ebe5fb798af732ca9f04c92/68747470733a2f2f692e696d6775722e636f6d2f6a6544567071462e706e67",width=700>
+  <br/>
+  <em>Kiến trúc mạng Unet</em>
+</p>
+
+Dạng của dataset:
+- X_input:
+- y_true: 
+- y_pre:
+
+Thông số parameter của model:
+- Total params: 23,752,273
+- Trainable params: 23,748,241
+- Non-trainable params: 4,032
