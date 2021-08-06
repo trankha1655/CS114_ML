@@ -114,16 +114,30 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 ## Gắn nhãn dữ liệu
 
 ### Lalel 1 - Loại đẹp 
-    *mô tả rồi thêm ảnh, tìm mấy trái trong label 1 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
-   .................
+
+Thanh long thuộc loại này phải có chất lượng tốt, xét về đặc điểm bên ngoài vỏ thanh long phải đáp ứng các tiêu chí:
+- Khuyết tật nhẹ về hình dạng, màu sắc vỏ quả màu đỏ tươi ngoại trừ tai thanh long phải màu xanh lá.
+- Khuyết tật nhẹ trên vỏ quả, ít nấm bệnh, ít đốm do côn trùng.
+- Trong mọi trường họp, các khuyết tật không được ảnh hưởng đến thịt quả và không được ảnh hưởng đến chất lượng ngoại quan chung.
+   
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_05_54_08.Still030.jpg">
+</p>
    
 ### Label 2 - Loại tiêu chuẩn
-     *mô tả rồi thêm ảnh, tìm mấy trái trong label 2 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
-   .....................
+Thanh long không thuộc loại 1 và loại 3 được xếp vào loại 2
    
 ### Label 3 - Loại xấu
-       *mô tả rồi thêm ảnh, tìm mấy trái trong label 2 bỏ vào, 3 cam luôn. chỉnh size vừa nhìn
-   .......................
+Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhiều khuyết tật trên vỏ
+- Tai thanh long bị gãy, bị lem đỏ.
+- Có nhiều nấm bệnh, nhiều đốm do côn trùng.
+- Vỏ quả có màu sắc sẫm màu hơn loại 1 hoặc phần vỏ không hoàn toàn màu đỏ (ngoại trừ phần tai thanh long).
+
+<p float="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic1.jpg" width="1000" />
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic2.jpg" width="1000" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic3.jpg" width="1000" />
+</p>
 
 
 ## Tiền xử lý dữ liệu: Sử dụng model Semantic Segmentation
