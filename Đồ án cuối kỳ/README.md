@@ -47,9 +47,9 @@ Hiện nay, các vựa thanh long truyền thống trên cả nước phần l�
 Ba ảnh trích xuất từ 3 góc của camera với độ phân giải mỗi ảnh là 720p (1280 x 720 pixels). Mỗi ảnh chụp một mặt của cùng một quả thanh long
 
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
+  <img src="Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
+  <img src="Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" /> 
+  <img src="Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
 </p>
 
 Input ở trên dựa vào ngữ cảnh quả thanh long trên băng chuyền rửa quả thanh long. Từng trái thanh long sẽ lần lượt đi theo băng chuyền đi qua khu vực phân loại có đặt sẵn các camera với 2 camera nằm phía trên bên trái và bên phải cùng với một camera nằm ở dưới có ống kính hướng lên. Ánh sáng của ảnh được quay lúc trời quang đãng, ánh sáng rõ ràng, không quá chói.
@@ -89,8 +89,8 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/labeling1.jpg" width="450" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/labeling2.jpg" width="450" />
+  <img src="storage/labeling1.jpg" width="450" />
+  <img src="storage/labeling2.jpg" width="450" />
 <p align="center">
   <em> 3.1. Quá trình thu thập dữ liệu</em>
 </p>
@@ -106,26 +106,54 @@ Trong quá trình nghiên cứu phương pháp, nhóm có đọc qua một paper
 4. Tiến hành phân chia dữ liệu, có 3 nhãn tương ứng với 3 folder, mỗi folder chứa 3 folder con với mỗi folder trong này chứa ảnh được cắt ra từ camera tương ứng. 
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Diagram.png">
+  <img src="storage/Diagram.png">
 <p align="center">
   <em> 3.3. Cấu trúc thư mục chứa dữ liệu</em>
 </p>
 
 ## Gắn nhãn dữ liệu
+Trái được cắt đã qua các bước lọc cơ bản như: bỏ trái nhỏ, chưa chín, hư thúi,... bởi nông dân cắt. Và gắn nhãn này là bước phân loại chất lượng hàng để xuất khẩu, được tư vấn bởi chủ vựa.
 
 ### Lalel 1 - Loại đẹp 
 
 Thanh long thuộc loại này phải có chất lượng tốt, xét về đặc điểm bên ngoài vỏ thanh long phải đáp ứng các tiêu chí:
 - Khuyết tật nhẹ về hình dạng, màu sắc vỏ quả màu đỏ tươi ngoại trừ tai thanh long phải màu xanh lá.
-- Khuyết tật nhẹ trên vỏ quả, ít nấm bệnh, ít đốm do côn trùng.
+- Khuyết tật nhẹ trên vỏ quả, không nấm bệnh, không đốm do côn trùng.
 - Trong mọi trường họp, các khuyết tật không được ảnh hưởng đến thịt quả và không được ảnh hưởng đến chất lượng ngoại quan chung.
+- Được phép có đốm đen (vì có thể rửa được).
    
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_05_54_08.Still030.jpg">
+  <img src="Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_18_09_23.Still091.jpg" width="300"/>
+  <img src="Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_18_09_23.Still091.jpg" width="300"/>
+  <img src="Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_18_09_23.Still091.jpg" width="300"/>
+<p align="center">
+  <em>Trái loại 1 không tì vết</em>
+<p align="center">
+  <img src="Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_18_27_01.Still095.jpg" width="300"/>
+  <img src="Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_18_27_01.Still095.jpg" width="300"/>
+  <img src="Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_18_27_01.Still095.jpg" width="300"/>
+<p align="center">
+  <em>Trái loại 1 có khuyết tật nhẹ</em>
 </p>
    
 ### Label 2 - Loại tiêu chuẩn
-Thanh long không thuộc loại 1 và loại 3 được xếp vào loại 2
+Thanh long không thuộc loại 2 sẽ có tiêu chuẩn thấp hơn loại 1:
+- Khuyết tật nhẹ về hình dạng, màu sắc vỏ quả màu đỏ tươi ngoại trừ tai thanh long phải màu xanh lá.
+- Khuyết tật nhẹ trên vỏ quả. Vẫn không chấp nhận nấm bệnh, không đốm do côn trùng.
+- Các khuyết tật không được ảnh hưởng đến thịt quả và được ảnh hưởng mức độ đến chất lượng ngoại quan chung.
+
+<p align="center">
+  <img src="Dataset/img/label_2/Binh_s%20cam/l1_extra.00_40_27_19.Still070.jpg" width="300"/>
+  <img src="Dataset/img/label_2/Kha_s%20cam/l1_extra.00_40_27_19.Still070.jpg" width="300"/>
+  <img src="Dataset/img/label_2/Ti_s%20cam/l1_extra.00_40_27_19.Still070.jpg" width="300"/>
+
+<p align="center">
+  <img src="Dataset/img/label_2/Binh_s%20cam/label_2.01_15_05_11.Still041.jpg" width="300"/>
+  <img src="Dataset/img/label_2/Kha_s%20cam/label_2.01_15_05_11.Still041.jpg" width="300"/>
+  <img src="Dataset/img/label_2/Ti_s%20cam/label_2.01_15_05_11.Still041.jpg" width="300"/>
+<p align="center">
+  <em>Trái loại 2 có bị ảnh hưởng ngoại quan</em>
+</p>
    
 ### Label 3 - Loại xấu
 Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhiều khuyết tật trên vỏ
@@ -134,9 +162,9 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 - Vỏ quả có màu sắc sẫm màu hơn loại 1 hoặc phần vỏ không hoàn toàn màu đỏ (ngoại trừ phần tai thanh long).
 
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic1.jpg" width="1000" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic2(1).jpg" width="1000" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic3.jpg" width="1000" />
+  <img src="storage/Label_3_pic1.jpg" width="1000" />
+  <img src="storage/Label_3_pic2(1).jpg" width="1000" /> 
+  <img src="storage/Label_3_pic3.jpg" width="1000" />
 </p>
 
 
@@ -144,16 +172,16 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 
 - Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
   <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Binh_cam_labelme.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Kha_cam_labelme.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Ti_cam_labelme.jpg" width="300" />
+  <img src="storage/Binh_cam_labelme.jpg" width="300" />
+  <img src="storage/Kha_cam_labelme.jpg" width="300" /> 
+  <img src="storage/Ti_cam_labelme.jpg" width="300" />
 </p>
 
 - Sử dụng các loại model Semantic Segmentation huấn luyện, tách phần background và giữ lại phần trái để huấn luyện cho mô hình phân loại
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
+  <img src="Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
+  <img src="Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
+  <img src="Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
 </p>  
 
 
@@ -164,16 +192,16 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 
 - Ảnh có chứa ngoại vật xen lẫn vào trái thanh long: tay, thanh sắt lúc chụp từ dưới lên.
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/label_2.01_14_13_26.Still024.jpg" width="450" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/label_2.01_13_44_28.Still008.jpg" width="450" /> 
+  <img src="Dataset/img/label_2/Ti_s%20cam/label_2.01_14_13_26.Still024.jpg" width="450" />
+  <img src="Dataset/img/label_2/Ti_s%20cam/label_2.01_13_44_28.Still008.jpg" width="450" /> 
   
   <p align="center">
   <em>Ngoại vật trong trường hợp này là tay người</em>
 </p>
 
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_21_23.Still054.jpg" width="450" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
+  <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_21_23.Still054.jpg" width="450" /> 
+  <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
     
   <p align="center">
   <em>Ngoại vật trong trường hợp này là thanh sắt của băng chuyền</em>
@@ -181,10 +209,10 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 
 - Ảnh ở camera thứ hai (Kha_cam) có độ sáng cao hơn 2 ảnh ở camera còn lại do góc chụp từ dưới hướng lên trời.
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="900" />
+  <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="900" />
 <p float="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Ti_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_2/Binh_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
+  <img src="Dataset/img/label_2/Ti_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
+  <img src="Dataset/img/label_2/Binh_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
 <p align="center">
   <em>Độ sáng của ảnh chụp từ dưới lên cao hơn 2 ảnh chụp ở 2 bên từ trên xuống</em>
 </p>
@@ -207,9 +235,9 @@ Chứa tất cả ảnh đã gắn nhãn như mô tả trên
   + 301 tập thuộc label 3
 
 <p float="left">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/Đồ%20án%20cuối%20kỳ/Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
+  <img src="Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
+  <img src="Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
+  <img src="Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
 <p align="center">
   <em>Tăng cường dữ liệu bằng cách xoay chuyển vị trí quả thanh long trên cùng một góc quay</em>
 </p>
@@ -247,15 +275,15 @@ Chứa 2 loại:
 # Chương 4: Training và đánh giá model
 ## Cấu hình máy:
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Configuration.jpg">
+  <img src="storage/Configuration.jpg">
 </p>
 
 ## Training model để xóa background ảnh (Giai đoạn Preprocessing)
 Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/test_Unet%20(2).png",width=600>
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/test_Unet.png",width=600>
+  <img src="storage/Unet/test_Unet%20(2).png",width=600>
+  <img src="storage/Unet/test_Unet.png",width=600>
   <br/>
   <em>Xác định phần quả thanh long trên khung hình và tách ra khỏi ảnh (xóa background)</em>
 </p>
