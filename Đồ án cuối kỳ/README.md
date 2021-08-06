@@ -135,7 +135,7 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 
 <p float="center">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic1.jpg" width="1000" />
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic2.jpg" width="1000" /> 
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic2(1).jpg" width="1000" /> 
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Label_3_pic3.jpg" width="1000" />
 </p>
 
