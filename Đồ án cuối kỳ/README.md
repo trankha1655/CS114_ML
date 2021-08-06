@@ -289,6 +289,8 @@ Chứa 2 loại:
 </p>
 
 ### Mạng Unet
+
+#### 1. Sơ lược mạng Unet
 Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
 - Encoder để giảm chiều dài và chiều rộng của ảnh, Encoder thường là các mạng CNN thông thường (nhóm sử dụng mạng VGG-16 cho phần Encoder)
 - Decoder để khôi phục kích thước ảnh gốc
@@ -298,12 +300,29 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
   <em>Kiến trúc mạng Unet</em>
 </p>
 
-Dạng của dataset:
-- X_input:
-- y_true: 
-- y_pre:
+#### 2. Chi tiết dataset: 
+gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
+  - X_input: Ảnh quả thanh long gốc (file .jpg)
+  - y_true: file .json sau khi segment ảnh bằng labelme
+
+#### 3. Quá trình training thiết lập như thế nào?? (xây dựng đầu vào cho model: reshape,batch_size,epoch???)
+
+.........................................
 
 Thông số parameter của model:
 - Total params: 23,752,273
 - Trainable params: 23,748,241
 - Non-trainable params: 4,032
+
+#### 4. Kết quả: ...(updating)(đánh giá performance)
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/loss_Unet.png",width = 450>
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/iou_score_Unet.png",width = 450>
+  <br/>
+  <em>Đồ thị loss value và iou score của model</em>
+</p>
+
+#### 5. Demo
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/Plot_Unet.png">
+</p>
