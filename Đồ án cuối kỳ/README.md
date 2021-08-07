@@ -288,26 +288,26 @@ Chứa 2 loại:
   <em>Xác định phần quả thanh long trên khung hình và tách ra khỏi ảnh (xóa background)</em>
 </p>
 
-### Mạng Unet
+### Mạng UNet
 
-#### 1. Sơ lược mạng Unet
-Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
+#### 1. Sơ lược mạng UNet
+Kiến trúc mạng UUNet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
 - Encoder để giảm chiều dài và chiều rộng của ảnh, Encoder thường là các mạng CNN thông thường (nhóm sử dụng mạng VGG-16 cho phần Encoder)
 - Decoder để khôi phục kích thước ảnh gốc
 <p align="center">
   <img src="https://camo.githubusercontent.com/41ded1456b9dbe13b8d73d8da539dac95cb8aa721ebe5fb798af732ca9f04c92/68747470733a2f2f692e696d6775722e636f6d2f6a6544567071462e706e67",width=700>
   <br/>
-  <em>Kiến trúc mạng Unet</em>
+  <em>Kiến trúc mạng UNet</em>
 </p>
 
-#### 2. Chi tiết dataset: 
+#### 2. Chi tiết datasets: 
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
   - X_input: Ảnh quả thanh long gốc (file .jpg)
   - y_true: file .json sau khi segment ảnh bằng labelme
 
 #### 3. Quá trình training thiết lập như thế nào?? (xây dựng đầu vào cho model: reshape,batch_size,epoch???)
 
-.........................................
+**(updating...)**
 
 Thông số parameter của model:
 - Total params: 23,752,273
@@ -327,10 +327,27 @@ Dựa vào 2 đồ thị trên, nhóm nhận xét model hoạt động tốt tr�
 - iou_score (intersection over union score) được tính bằng phép chia của ***area of overlap*** cho ***area of union***. Dựa trên đồ thị, iou_score có giá trị rất cao với trung bình khoảng 0.95. Do đó phần diện tích dự đoán đúng trên một ảnh rất cao.
   - ***Area of overlap*** là diện tính phần chồng lên nhau giữa predicted bounding box và ground-truth bounding box
   - ***area of union*** là diện tích phần hợp - hay đơn giản hơn là diện tích mà hai bounding box này đang chiếm
+
 #### 5. Demo
 <p align="center">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/Plot_Unet.png">
 </p>
 
 ### Mạng Enet
+
+#### 1. Sơ lược mạng ENet
+ENet (Efficient Neural Network) có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có. Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
+
+#### 2. Chi tiết datasets
+**
+#### 3. Quá trình thiết lập training
+Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu
+- Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
+- Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
+**(updating...)**
+
+#### 4. Kết quả
+**(updating...)**
+
+#### 5. Demo
 
