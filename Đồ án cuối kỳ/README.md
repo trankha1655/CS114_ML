@@ -288,45 +288,65 @@ Chứa 2 loại:
   <em>Xác định phần quả thanh long trên khung hình và tách ra khỏi ảnh (xóa background)</em>
 </p>
 
-### Mạng UNet
+### MẠNG UNET
 
-#### 1. Sơ lược mạng UNet
-Kiến trúc mạng UUNet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
-- Encoder để giảm chiều dài và chiều rộng của ảnh, Encoder thường là các mạng CNN thông thường (nhóm sử dụng mạng VGG-16 cho phần Encoder)
+#### 1. Sơ lược mạng Unet
+Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần bên trái) và phần decoder (phần bên phải). Trong đó
+- Encoder để giảm chiều dài và chiều rộng của ảnh, Encoder thường là các mạng CNN thông thường
 - Decoder để khôi phục kích thước ảnh gốc
+- Nhóm sử dụng repos có sẵn: [Segmentation Models](https://github.com/qubvel/segmentation_models)
 <p align="center">
-  <img src="https://camo.githubusercontent.com/41ded1456b9dbe13b8d73d8da539dac95cb8aa721ebe5fb798af732ca9f04c92/68747470733a2f2f692e696d6775722e636f6d2f6a6544567071462e706e67",width=700>
+  <img src="storage/Unet/Unet_NN.png",width=500>
   <br/>
-  <em>Kiến trúc mạng UNet</em>
+  <em>Kiến trúc mạng Unet</em>
 </p>
 
-#### 2. Chi tiết datasets: 
+#### 2. Chi tiết Input, Output và xử lí
+
+##### INPUT
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
-  - X_input: Ảnh quả thanh long gốc (file .jpg)
-  - y_true: file .json sau khi segment ảnh bằng labelme
+  - X_input: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
+  - y_true: file .json sau khi segment ảnh bằng labelme thu được array nhị phân với shape = [720, 1280] được reshape thành [320, 640]
+
+##### INPUT & XỬ LÍ
+  - y_predict là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
+  - sau đó apply y_predict vào ảnh gốc thu được phần trái đã được xóa background.
 
 #### 3. Quá trình training thiết lập như thế nào?? (xây dựng đầu vào cho model: reshape,batch_size,epoch???)
 
-**(updating...)**
+##### COMPILE
+  - backbone nhóm sử dụng là vgg16 vì thấy ít parameter hơn resnet50 hay các mạng khác.
+  - batch_size = 16
+  - epoch = 100
+  - loss: [jaccard_loss](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.losses.JaccardLoss), metric: [IOU_score](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.metrics.IOUScore) có sẵn trong repos [Segmentation Models](https://github.com/qubvel/segmentation_models)
+
+ 
+##### SUMMARY
 
 Thông số parameter của model:
 - Total params: 23,752,273
 - Trainable params: 23,748,241
 - Non-trainable params: 4,032
 
-#### 4. Kết quả:
+
+#### 4. Kết quả: ...(updating)(đánh giá performance)
+Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết quá trình từng epoch:
+
+  - Mỗi epoch mất khoảng 96s để train.
+  - Loss giảm mạnh trong 5 epochs đầu và bão hòa sau đó, hầu như ko hề giảm
+  - Model huyền thoại này khá ổn, với số lượng data tương đối nhiều, kết quả tốt. 
+  - Nhóm thử predict trên batch 16 tấm, model xử lí trong khoảnh 0.797s => khoảng 20fps. 
+
+
+
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/loss_Unet.png",width = 450>
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/iou_score_Unet.png",width = 450>
+  <img src="storage/Unet/loss_Unet.png",width = 450>
+  <img src="storage/Unet/iou_score_Unet.png",width = 450>
   <br/>
   <em>Đồ thị loss value và iou score của model</em>
 </p>
 
-Dựa vào 2 đồ thị trên, nhóm nhận xét model hoạt động tốt trên tập cả tập dữ liệu huấn luyện và tập dữ liệu kiểm thử
-- Sự chênh lệch giữa đường train và đường test ở cả hai đồ thị là rất nhỏ. Do đó model không bị overfitting.
-- iou_score (intersection over union score) được tính bằng phép chia của ***area of overlap*** cho ***area of union***. Dựa trên đồ thị, iou_score có giá trị rất cao với trung bình khoảng 0.95. Do đó phần diện tích dự đoán đúng trên một ảnh rất cao.
-  - ***Area of overlap*** là diện tính phần chồng lên nhau giữa predicted bounding box và ground-truth bounding box
-  - ***area of union*** là diện tích phần hợp - hay đơn giản hơn là diện tích mà hai bounding box này đang chiếm
+
 
 #### 5. Demo
 <p align="center">
