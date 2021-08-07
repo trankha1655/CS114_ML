@@ -185,9 +185,6 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 </p>  
 
 
-
-- 
-
 ## Trường hợp dữ liệu khó xử lý
 
 - Ảnh có chứa ngoại vật xen lẫn vào trái thanh long: tay, thanh sắt lúc chụp từ dưới lên.
@@ -303,25 +300,25 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
 
 #### 2. Chi tiết Input, Output và xử lí
 
-##### INPUT
+##### 2.1 INPUT
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
-  - X_input: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
-  - y_true: file .json sau khi segment ảnh bằng labelme thu được array nhị phân với shape = [720, 1280] được reshape thành [320, 640]
+  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
+  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được array nhị phân với shape = [720, 1280] được reshape thành [320, 640]
 
-##### INPUT & XỬ LÍ
-  - y_predict là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
-  - sau đó apply y_predict vào ảnh gốc thu được phần trái đã được xóa background.
+##### 2.2 OUTPUT & XỬ LÍ
+  - **y_predict** là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
+  - sau đó apply **y_predict** vào ảnh gốc thu được phần trái đã được xóa background.
 
-#### 3. Quá trình training thiết lập như thế nào?? (xây dựng đầu vào cho model: reshape,batch_size,epoch???)
+#### 3. Quá trình thiết lập training
 
-##### COMPILE
+##### 3.1 COMPILE
   - backbone nhóm sử dụng là vgg16 vì thấy ít parameter hơn resnet50 hay các mạng khác.
   - batch_size = 16
   - epoch = 100
   - loss: [jaccard_loss](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.losses.JaccardLoss), metric: [IOU_score](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.metrics.IOUScore) có sẵn trong repos [Segmentation Models](https://github.com/qubvel/segmentation_models)
 
  
-##### SUMMARY
+##### 3.2 SUMMARY
 
 Thông số parameter của model:
 - Total params: 23,752,273
@@ -335,7 +332,7 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
   - Mỗi epoch mất khoảng 96s để train.
   - Loss giảm mạnh trong 5 epochs đầu và bão hòa sau đó, hầu như ko hề giảm
   - Model huyền thoại này khá ổn, với số lượng data tương đối nhiều, kết quả tốt. 
-  - Nhóm thử predict trên batch 16 tấm, model xử lí trong khoảnh 0.797s => khoảng 20fps. 
+  - Nhóm thử predict trên batch 16 tấm, model xử lí trong khoảng 0.797s => khoảng 20fps. 
 
 
 
