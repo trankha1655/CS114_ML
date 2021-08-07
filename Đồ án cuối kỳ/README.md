@@ -314,7 +314,7 @@ Thông số parameter của model:
 - Trainable params: 23,748,241
 - Non-trainable params: 4,032
 
-#### 4. Kết quả: ...(updating)(đánh giá performance)
+#### 4. Kết quả:
 <p align="center">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/loss_Unet.png",width = 450>
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/iou_score_Unet.png",width = 450>
@@ -322,7 +322,15 @@ Thông số parameter của model:
   <em>Đồ thị loss value và iou score của model</em>
 </p>
 
+Dựa vào 2 đồ thị trên, nhóm nhận xét model hoạt động tốt trên tập cả tập dữ liệu huấn luyện và tập dữ liệu kiểm thử
+- Sự chênh lệch giữa đường train và đường test ở cả hai đồ thị là rất nhỏ. Do đó model không bị overfitting.
+- iou_score (intersection over union score) được tính bằng phép chia của ***area of overlap*** cho ***area of union***. Dựa trên đồ thị, iou_score có giá trị rất cao với trung bình khoảng 0.95. Do đó phần diện tích dự đoán đúng trên một ảnh rất cao.
+  - ***Area of overlap*** là diện tính phần chồng lên nhau giữa predicted bounding box và ground-truth bounding box
+  - ***area of union*** là diện tích phần hợp - hay đơn giản hơn là diện tích mà hai bounding box này đang chiếm
 #### 5. Demo
 <p align="center">
   <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/Plot_Unet.png">
 </p>
+
+### Mạng Enet
+
