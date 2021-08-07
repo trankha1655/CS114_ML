@@ -336,18 +336,23 @@ Dựa vào 2 đồ thị trên, nhóm nhận xét model hoạt động tốt tr�
 ### Mạng Enet
 
 #### 1. Sơ lược mạng ENet
-ENet (Efficient Neural Network) có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có. Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
+****ENet (Efficient Neural Network)*** có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có. Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
 
 #### 2. Chi tiết datasets
-**
+
+**(updating...)**
+
 #### 3. Quá trình thiết lập training
 Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu
 - Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
 - Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
+
 **(updating...)**
 
 #### 4. Kết quả
+
 **(updating...)**
 
 #### 5. Demo
 
+**(updating...)**
