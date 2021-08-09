@@ -275,7 +275,7 @@ Chứa 2 loại:
   <img src="storage/Configuration.jpg">
 </p>
 
-## Training model để xóa background ảnh (Giai đoạn Preprocessing)
+## Model dùng  xóa background ảnh (Giai đoạn Preprocessing)
 Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
 
 <p align="center">
@@ -351,20 +351,26 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
 </p>
 
 ### Mạng Enet
-
 #### 1. Sơ lược mạng ENet
-****ENet (Efficient Neural Network)*** có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có. Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
+
+****ENet (Efficient Neural Network)*** có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có (năm 2016). Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
 
 #### 2. Chi tiết datasets
-
-**(updating...)**
-
-#### 3. Quá trình thiết lập training
-Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu
+Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu.
 - Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
 - Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
 
+**Bộ dữ liệu cho model Enet_2cam**: Gồm tổng cộng 433 mẫu dữ liệu. Trong đó, có 361(≈83%) mẫu dùng để training và 72(≈17%) tập dùng cho validation.
+
+**Bộ dữ liệu cho model Enet_midcam**: Gồm tổng cộng 866 mẫu dữ liệu. Trong đó, có 738 (≈85%) mẫu dùng để training và 128(≈15%) tập dùng cho validation.
+
+*Mỗi mẫu dữ liệu bao gồm:*
+- ...
+
+#### 3. Quá trình thiết lập training
+
 **(updating...)**
+
 
 #### 4. Kết quả
 
@@ -372,4 +378,19 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 
 #### 5. Demo
 
-**(updating...)**
+**Model Enet_2cam**
+
+**Model Enet_midcam**
+
+<p align="center">
+  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Enet/2_cam/Plot_demo.png">
+</p>
+
+### So sánh hai model
+| Tiêu chí đánh giá | UNet | ENet |
+| :---: | --- | --- |
+| | | |
+
+***Kết luận***
+
+## Model dùng để phân loại thanh long
