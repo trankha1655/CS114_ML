@@ -241,7 +241,7 @@ Chứa tất cả ảnh đã gắn nhãn như mô tả trên
 
 ### Json
 
-1299 folder chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme]() để decode thành nparray nhị phân 1280x720:
+1299 folder chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme](https://github.com/wkentaro/labelme) để decode thành nparray nhị phân 1280x720:
   + 433 file thuộc view Binh_s cam
   + 433 file thuộc view Kha_s cam
   + 433 file thuộc view Ti_s cam
@@ -303,7 +303,7 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
 ##### 2.1 INPUT
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
   - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
-  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được array nhị phân với shape = [720, 1280] được reshape thành [320, 640]
+  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
 
 ##### 2.2 OUTPUT & XỬ LÍ
   - **y_predict** là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
@@ -394,3 +394,46 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 ***Kết luận***
 
 ## Model dùng để phân loại thanh long
+Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
+Bộ dữ liệu sử dụng cho các model:
+- Giai đoạn 1 (trước khi tăng cường dữ liệu): gồm 858 tập dữ liệu tương ứng với 2574 ảnh quả thanh long ở các góc chụp khác nhau (1 tập = 3 ảnh ở 3 góc chụp). 858 tập được chia ra như sau:
+  - 606 tập để training (≈71%)
+  - 167 tập để validation (≈19%)
+  - 85 tập để test (≈10%)
+- Giai đoạn 2 (sau khi tăng cường dữ liệu): gồm 1119 tập dữ liệu tương ứng với 3357 ảnh quả thanh long ở các góc chụp khác nhau
+  - 782 tập để training (≈70%)
+  - 218 tập để validation (≈19%)
+  - 119 tập để test (≈11%)
+
+### I/ Inception ResNet v2
+#### 1. Sơ lược Inception Resnet v2
+Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây dựng dựa trên họ kiến trúc Inception nhưng kết hợp các kết [Residual Connection](https://paperswithcode.com/method/residual-connection). Chi tiết : [Inception ResNet v2](https://paperswithcode.com/model/inception-resnet-v2?variant=inception-resnet-v2-1)
+
+#### 2. Quá trình thiết lập training
+
+#### 3. Đánh giá kết quả
+**Giai đoạn 1:**
+
+**Giai đoạn 2:**
+
+### II/ ResNet 50
+#### 1. Sơ lược mạng ResNet
+[ResNet (Residual Network)](https://en.wikipedia.org/wiki/Residual_neural_network) được giới thiệu đến công chúng vào năm 2015 và thậm chí đã giành được vị trí thứ 1 trong cuộc thi ILSVRC 2015 với tỉ lệ lỗi top 5 chỉ 3.57%. Không những thế nó còn đứng vị trí đầu tiên trong cuộc thi ILSVRC and COCO 2015 với ImageNet Detection, ImageNet localization, Coco detection và Coco segmentation.Hiện tại thì có rất nhiều biến thể của kiến trúc ResNet với số lớp khác nhau như ResNet-18, ResNet-34, ResNet-50, ResNet-101, ResNet-152,...Với tên là ResNet theo sau là một số chỉ kiến trúc ResNet với số lớp nhất định.
+
+Nhìn chung ResNet cũng gần như tương tự với các mạng gồm có convolution, pooling, activation và fully-connected layer. ResNet sử dụng các kết nối "tắt" đồng nhất để xuyên qua một hay nhiều lớp
+#### 2. Quá trình thiết lập training
+
+#### 3. Đánh giá kết quả
+
+### III/ MobileNetV2
+#### 1. Sơ lược mạng MobileNetV2
+Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc được ưa chuộng nhất khi phát triển các ứng dụng AI trong computer vision bởi độ chính xác và hiệu năng tính toán. MobileNetV2 cũng sử dụng những kết nối tắt như ở mạng ResNet. Tuy nhiên kết nối tắt ở MobileNetV2 được điều chỉnh sao cho số kênh (hoặc chiều sâu) ở input và output của mỗi block residual được thắt hẹp lại. Chính vì thế nó được gọi là các bottleneck layers. (Nguồn: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381))
+
+#### 2. Quá trình thiết lập training
+
+#### 3. Đánh giá kết quả
+**Giai đoạn 1:**
+
+**Giai đoạn 2:**
+
+### IV/ So sánh các model
