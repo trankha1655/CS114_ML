@@ -347,7 +347,7 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
 
 #### 5. Demo
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Unet/Plot_Unet.png">
+  <img src="storage/Unet/Plot_Unet.png">
 </p>
 
 ### Mạng Enet
@@ -381,13 +381,13 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 **Model Enet_midcam**
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Enet/Mid_cam/Enet_midcam_demo.jpg">
+  <img src="storage/Enet/Mid_cam/Enet_midcam_demo.jpg">
 </p>
 
 **Model Enet_2cam**
 
 <p align="center">
-  <img src="https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/storage/Enet/2_cam/Plot_demo.png">
+  <img src="storage/Enet/2_cam/Plot_demo.png">
 </p>
 
 ### So sánh hai model
@@ -397,7 +397,7 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 
 ***Kết luận***
 
-## Model dùng để phân loại thanh long
+## Classify Model
 Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
 Bộ dữ liệu sử dụng cho các model:
 - Giai đoạn 1 (trước khi tăng cường dữ liệu): gồm 858 tập dữ liệu tương ứng với 2574 ảnh quả thanh long ở các góc chụp khác nhau (1 tập = 3 ảnh ở 3 góc chụp). 858 tập được chia ra như sau:
@@ -409,14 +409,33 @@ Bộ dữ liệu sử dụng cho các model:
   - 218 tập để validation (≈19%)
   - 119 tập để test (≈11%)
 
-### I/ Inception ResNet v2
+Không như các bài toán phân loại hay nhận dạng thông thường. Vấn đề của bài toán là phân loại dựa thông tin ở 3 góc nhìn khác nhau => Bài toán phân loại dựa trên 3 góc. Vậy nhóm nghĩ ra phương pháp (sau này mới tìm và thấy đã có bài báo, pp tên là Multi-view CNN).
+
+<p float="left">
+  <img src="storage/ppp.png",width = 450>
+  <img src="storage/MobileNet/model_MbNetv2.png",width = 450>
+  <br/>
+  <em>NGHĨA M CHO 2 ẢNH NÀY TRÊN 1 DÒNG DÙM TAO</em>
+</p>
+
+
+
+### I/ BACKBONE: Inception ResNet v2
 #### 1. Sơ lược Inception Resnet v2
 Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây dựng dựa trên họ kiến trúc Inception nhưng kết hợp các kết [Residual Connection](https://paperswithcode.com/method/residual-connection). Chi tiết : [Inception ResNet v2](https://paperswithcode.com/model/inception-resnet-v2?variant=inception-resnet-v2-1)
 
 #### 2. Quá trình thiết lập training
+  
+  - Weight sử dụng là "imagenet"
+  - optimizer: "Adam"
+  - loss: "categorical_crossentropy"
+  - metrics: "accuracy"
+  - kĩ thuật: fine tuning
+    + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
+    + trainAll: unfreeze backbone và train tất cả
 
 #### 3. Đánh giá kết quả
-**Giai đoạn 1:**
+##### **Giai đoạn 1:**
 
 **Giai đoạn 2:**
 
