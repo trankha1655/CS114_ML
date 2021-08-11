@@ -486,8 +486,24 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 
 ### IV/ So sánh các model
 #### Giai đoạn 1
+
+- InceptionResNetv2: mạng có độ phức tạp cao nên loss accuracy tốt nhất trong 3 mạng, nhưng vẫn bị overfitting. 
+- Resnet50: mạng độ phức tạp vừa, parameter nhiều hơn so với MobileNet nhưng hiệu suất thì ko tốt. Train tốt tài nguyên hơn nhưng hiệu suất thua Mobile.
+- MobileNetv2: mạng nhỏ con nhưng xịn, với cấu trúc bottle neck trích xuất đặc trưng tốt. Nhỏ nhẹ mạnh, tuy nhiên giống như InceptionResNetv2, vẫn bị overfitting.
+- Train All cho thấy loss tập train giảm nhưng val thì ko giảm bao nhiêu. Nhóm kết luận là data quá ít, ko đủ cho mô hình học 
+
 <p align="center">
-  <img src="storage/MobileNet/performance_lessdata.png">
+  <img src="storage/performance_lessdata.png">
+  <br>
+  <em>Chart so sánh performance các model.</em>
+</p>
+
+#### Giai đoạn 2
+- InceptionResNetv2: model này cho thấy rõ hiện trạng của dataset. Fine tuning, chỉ train các dense layer. Loss train, loss val gần như bằng nhau. Sau khi unfreeze, chỉ mỗi loss train giảm, val loss giảm ít. Cho thấy loss giảm là do mô hình "quá tốt". Vẫn bị overfitting, cần thêm data.
+- MobileNetv2: cũng tương tự InceptionResNetv2, mạng nhỏ hơn nhưng vẫn overfitting. 
+
+<p align="center">
+  <img src="storage/performance_moredata.png">
   <br>
   <em>Chart so sánh performance các model.</em>
 </p>
