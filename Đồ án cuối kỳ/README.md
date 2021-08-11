@@ -6,7 +6,7 @@
     
   **BÁO CÁO ĐỒ ÁN CUỐI KỲ**
   
-  **APPLICATION TO CATEGORIZE DRAGON FRUIT EXPORTAION**
+  **PHÂN LOẠI THANH LONG XUẤT KHẨU**
   </h1>
 
 ## Giảng viên hướng dẫn:
@@ -275,7 +275,7 @@ Chứa 2 loại:
   <img src="storage/Configuration.jpg">
 </p>
 
-## Model dùng  xóa background ảnh (Giai đoạn Preprocessing)
+## Model dùng xóa background ảnh (Giai đoạn Preprocessing)
 Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
 
 <p align="center">
@@ -365,16 +365,27 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 **Bộ dữ liệu cho model Enet_midcam**: Gồm tổng cộng 866 mẫu dữ liệu. Trong đó, có 738 (≈85%) mẫu dùng để training và 128(≈15%) tập dùng cho validation.
 
 *Mỗi mẫu dữ liệu bao gồm:*
-- ...
+- **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
+- **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
+
+Output y_predict là np.array có shape [320,640,3] 
 
 #### 3. Quá trình thiết lập training
 
-**(updating...)**
-
+- batch size = 32
+- Epoch = 100
+- Loss sử dụng hàm cross entropy loss
+- optimizer là Adam
 
 #### 4. Kết quả
 
-**(updating...)**
+<p align="center">
+  <img src="storage/Enet/Mid_cam/Enet_midcam_loss.jpg",width = 400>
+  <img src="storage/Enet/2_cam/ENet_2cam_loss.jpg",width = 400>
+  <br/>
+  <em>Đồ thị loss value của hai model</em>
+</p>
+
 
 #### 5. Demo
 
@@ -393,7 +404,9 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 ### So sánh hai model
 | Tiêu chí đánh giá | UNet | ENet |
 | :---: | --- | --- |
-| | | |
+| Tốc độ xử lý | | |
+| Tài nguyên tiêu hao | | |
+| Độ chính xác | | |
 
 ***Kết luận***
 
