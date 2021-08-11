@@ -485,3 +485,9 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 **Giai đoạn 2:**
 
 ### IV/ So sánh các model
+#### Giai đoạn 1
+<p align="center">
+  <img src="storage/MobileNet/performance_lessdata.png">
+  <br>
+  <em>Chart so sánh performance các model.</em>
+</p>
