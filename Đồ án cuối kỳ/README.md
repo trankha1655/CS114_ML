@@ -507,3 +507,27 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <br>
   <em>Chart so sánh performance các model.</em>
 </p>
+
+- Metrics của 2 model cũng ko hơn kém gì nhau bao nhiêu
+<p align="center">
+  <img src="storage/metric_mb.png">
+  <img src="storage/metric_resnet.png">
+  <br>
+  <em>Metrics của MobileNetv2 (trên) và InceptionResnetv2 (dưới).</em>
+</p>
+
+- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều. 
+<p align="center">
+  <img src="storage/Cufusion_matrix_MB.png">
+  <img src="storage/Cufusion_matrix_resnet.png">
+  <br>
+  <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
+</p>
+
+- Demo thử các trái: 
+<p align="center">
+  <img src="storage/plot_mb.png" , width = 450>
+  <img src="storage/plot_incep.png", width = 450>
+  <br>
+  <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
+</p>
