@@ -40,7 +40,7 @@ Việc xuất khẩu trái cây trong đó có thanh long cũng được lựa c
 
 Hiện nay, các vựa thanh long truyền thống trên cả nước phần lớn vẫn chưa cơ giới hóa khâu phân loại mà cần khá nhiều nhân lực cho khâu này. Đặc biệt trong tình hình dịch bệnh Covid 19 đang diễn biến khá phức tạp, khi nhiều tỉnh thành phía nam phải thực hiện giãn cách xã hội ngay trong mùa thu hoạch thanh long khiến cho việc tập trung nhiều nhân lục tại một địa điểm rất khó khăn. [Sản lượng thanh long ở nước ta tăng rất nhanh](https://nongnghiep.vn/viet-nam-tiep-tuc-la-nha-san-xuat-thanh-long-hang-dau-d264006.html) do nhu cầu xuất khẩu đến các nước ngày càng cao đòi hỏi cần cơ giới hóa nhiều quy trình nhằm tăng năng suất cũng như rút ngắn thời gian sản phẩm đến tay người tiêu dùng, trong đó có khâu phân loại.
 
-🠊 ***Vì những nhu cầu thực tế trên, chúng tôi nghiên cứu phương pháp phân loại trái thanh long thông qua hình ảnh bằng machine learning***
+🠊 ***Vì những nhu cầu thực tế trên, nhóm tiến hành nghiên cứu phương pháp phân loại trái thanh long thông qua hình ảnh bằng deep learning***
 
 **1. Input của bài toán**
 
@@ -428,7 +428,6 @@ Không như các bài toán phân loại hay nhận dạng thông thường. V�
   <img src="storage/ppp.png",width = 450>
   <img src="storage/MobileNet/model_MbNetv2.png",width = 450>
   <br/>
-  <em>NGHĨA M CHO 2 ẢNH NÀY TRÊN 1 DÒNG DÙM TAO</em>
 </p>
 
 
@@ -447,11 +446,6 @@ Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây d�
     + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
     + trainAll: unfreeze backbone và train tất cả
 
-#### 3. Đánh giá kết quả
-##### **Giai đoạn 1:**
-
-**Giai đoạn 2:**
-
 ### II/ ResNet 50
 #### 1. Sơ lược mạng ResNet
 [ResNet (Residual Network)](https://en.wikipedia.org/wiki/Residual_neural_network) được giới thiệu đến công chúng vào năm 2015 và thậm chí đã giành được vị trí thứ 1 trong cuộc thi ILSVRC 2015 với tỉ lệ lỗi top 5 chỉ 3.57%. Không những thế nó còn đứng vị trí đầu tiên trong cuộc thi ILSVRC and COCO 2015 với ImageNet Detection, ImageNet localization, Coco detection và Coco segmentation.Hiện tại thì có rất nhiều biến thể của kiến trúc ResNet với số lớp khác nhau như ResNet-18, ResNet-34, ResNet-50, ResNet-101, ResNet-152,...Với tên là ResNet theo sau là một số chỉ kiến trúc ResNet với số lớp nhất định.
@@ -465,7 +459,6 @@ Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây d�
 Nhìn chung ResNet cũng gần như tương tự với các mạng gồm có convolution, pooling, activation và fully-connected layer. ResNet sử dụng các kết nối "tắt" đồng nhất để xuyên qua một hay nhiều lớp
 #### 2. Quá trình thiết lập training
 
-#### 3. Đánh giá kết quả
 
 ### III/ MobileNetV2
 #### 1. Sơ lược mạng MobileNetV2
@@ -479,12 +472,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 
 #### 2. Quá trình thiết lập training
 
-#### 3. Đánh giá kết quả
-**Giai đoạn 1:**
-
-**Giai đoạn 2:**
-
-### IV/ So sánh các model
+### IV/ Đánh giá các model
 #### Giai đoạn 1
 
 - InceptionResNetv2: mạng có độ phức tạp cao nên loss accuracy tốt nhất trong 3 mạng, nhưng vẫn bị overfitting. 
@@ -508,7 +496,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Chart so sánh performance các model.</em>
 </p>
 
-- Metrics của 2 model cũng ko hơn kém gì nhau bao nhiêu
+- Metrics của 2 model cũng ko hơn kém gì nhau bao nhiêu. Tuy nhiên, InceptionResNetv2 có số lượng parameters nhiều gấp khoảng 21 lần so với model MobileNetv2 (164,609,699 parameters so với 8,108,227 parameters). Vì vậy, thời gian train và test MobileNetv2 nhanh hơn nhiều so với InceptionResNetv2.
 <p align="center">
   <img src="storage/metric_mb.png">
   <img src="storage/metric_resnet.png">
@@ -516,7 +504,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Metrics của MobileNetv2 (trên) và InceptionResnetv2 (dưới).</em>
 </p>
 
-- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều. 
+- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều.
 <p align="center">
   <img src="storage/Cufusion_matrix_MB.png">
   <img src="storage/Cufusion_matrix_resnet.png">
@@ -524,10 +512,32 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
 </p>
 
-- Demo thử các trái: 
+- Demo nhãn dự đoán và nhãn thực tế của hai mô hình (InceptionResnetv2 - trái và MobileNetv2 - phải):
 <p align="center">
   <img src="storage/plot_mb.png" , width = 450>
   <img src="storage/plot_incep.png", width = 450>
-  <br>
-  <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
 </p>
+
+Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai:
+
+**So sánh hai model**
+| Tiêu chí đánh giá | InceptionResNetv2 | MobileNetv2 |
+| :---: | --- | --- |
+| Tốc độ xử lý | | |
+| Tài nguyên tiêu hao | | |
+| Độ chính xác | | |
+
+***Kết luận***
+
+# Chương 5: Ứng dụng và hướng phát triển
+## Ứng dụng
+Như đã nêu ở phần I, mục đích ứng dụng của mô hình trên nhằm hướng đến các vựa thanh long và các nhà máy thu mua thanh long. Giúp cho các doanh nghiệp tự động hóa khâu phân loại ngay sau khâu rửa thanh long mà không cần dùng nhiều nhân lực vận hành .Tuy nhiên, việc phân loại cho xuất khẩu cần độ chính xác và năng suất cực cao nên model cần cải tiến rất nhiều về tốc độ xử lý và khả năng xử lý (phân loại nhiều quả trên khung hình, tốc độ băng chuyền nhanh,...)
+## Hướng phát triển
+### Dữ liệu:
+- Cần nhiều dữ liệu về các giống thanh long khác nhau nhằm tăng sự đa dạng về sản phẩm cũng như giúp model nhận diện các đặc trưng riêng cho từng loại tốt hơn.
+- Cải thiện môi trường thu thập dữ liệu sát với thực tế (điều kiện ánh sáng trong nhà)
+- Cải thiện cách tăng cường dữ liệu bằng các phương thức như random crop (cắt ngẫu nhiên), rotation (xoay), information loss (mất thông tin)... thay vì xoay thủ công như đã trình bày ở trên.
+- Cải thiện và bổ sung các phuong pháp khác trong quá trình pre-processing dữ liệu
+### Model:
+- Thử nghiệm một vài cách tiếp cận xây dựng model mới tham khảo bài toán tương tự như [Steel Defect Detection](https://www.kaggle.com/c/severstal-steel-defect-detection) và từ đó phát triển mô hình trên giúp cho mô hình nắm bắt tốt các khuyết tật của quả thanh long
+- Thử nghiệm một số model khác cũng như nghiên cứu thêm thông tin về các thông số ảnh hưởng thế nào đến các bộ dữ liệu khác nhau nhằm đưa ra cách điều chỉnh phù hợp.
