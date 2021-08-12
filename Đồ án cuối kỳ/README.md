@@ -350,7 +350,7 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
 ****ENet (Efficient Neural Network)*** có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có (năm 2016). Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
 
 #### 2. Chi tiết datasets
-Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu.
+Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại, mà mạng Enet có số lượng parameter ít hơn Unet rất nhiều nên rất khó trích xuất chính xác đặc trưng. Vì vậy, để tăng độ chính xác nhóm quyết định train 2 model cho 2 trường hợp dữ liệu.
 - Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
 - Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
 
@@ -502,7 +502,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai ở một vài trường hợp:
 - MobileNetv2 nhận diện các chi tiết nhỏ kém hơn InceptionResnet nên thường dự đoán sai class 1 và 2
 - InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần sang class 2 (lý do khuyết: ảnh chứa tay nên bị cắt đi)
-- Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái.
+- Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái và làm thay đổi màu sắc của quả trên ảnh
 
 **So sánh hai model**
 | Tiêu chí đánh giá | InceptionResNetv2 | MobileNetv2 |
