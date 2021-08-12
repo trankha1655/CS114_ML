@@ -302,14 +302,14 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
 
 ##### 2.1 INPUT
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
-  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
-  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
+  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được resize thành [320, 640, 3] (file .jpg)
+  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được resize thành [320, 640]
 
 ##### 2.2 OUTPUT & XỬ LÍ
   - **y_predict** là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
   - sau đó apply **y_predict** vào ảnh gốc thu được phần trái đã được xóa background.
 
-#### 3. Quá trình thiết lập training
+#### 3. Thiết lập training
 
 ##### 3.1 COMPILE
   - backbone nhóm sử dụng là vgg16 vì thấy ít parameter hơn resnet50 hay các mạng khác.
@@ -326,7 +326,7 @@ Thông số parameter của model:
 - Non-trainable params: 4,032
 
 
-#### 4. Kết quả: ...(updating)(đánh giá performance)
+#### 4. Kết quả:
 Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết quá trình từng epoch:
 
   - Mỗi epoch mất khoảng 96s để train.
@@ -368,14 +368,14 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
 - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
 
-Output y_predict là np.array có shape [320,640,3] 
+Output y_predict là np.array có shape [320,640,2] 
 
-#### 3. Quá trình thiết lập training
+#### 3.Thiết lập training
 
-- batch size = 32
-- Epoch = 100
+- Batch size = 32
 - Loss sử dụng hàm cross entropy loss
 - optimizer là Adam
+- Learning rate = 0.0005
 
 #### 4. Kết quả
 
@@ -404,12 +404,11 @@ Output y_predict là np.array có shape [320,640,3]
 ### So sánh hai model
 | Tiêu chí đánh giá | UNet | ENet |
 | :---: | --- | --- |
-| Tốc độ xử lý | | |
-| Tài nguyên tiêu hao | | |
-| Độ chính xác | | |
+| Tốc độ xử lý | 0.797 | 0.06 |
+| Độ chính xác | ? | ? |
 
 ***Kết luận***
-
+Unet chính xác hơn Enet nhưng tốc độ xử lý và tài nguyên tiêu hao lớn hơn Enet (tính toán hơn 20 triệu parameter so với 300 nghìn parameter của Enet). Nhưng tổng thể Enet có performance cao hơn nên sử dụng Enet để tách background.
 ## Classify Model
 Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
 Bộ dữ liệu sử dụng cho các model:
@@ -433,21 +432,9 @@ Không như các bài toán phân loại hay nhận dạng thông thường. V�
 
 
 ### I/ BACKBONE: Inception ResNet v2
-#### 1. Sơ lược Inception Resnet v2
 Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây dựng dựa trên họ kiến trúc Inception nhưng kết hợp các kết [Residual Connection](https://paperswithcode.com/method/residual-connection). Chi tiết : [Inception ResNet v2](https://paperswithcode.com/model/inception-resnet-v2?variant=inception-resnet-v2-1)
 
-#### 2. Quá trình thiết lập training
-  
-  - Weight sử dụng là "imagenet"
-  - optimizer: "Adam"
-  - loss: "categorical_crossentropy"
-  - metrics: "accuracy"
-  - kĩ thuật: fine tuning
-    + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
-    + trainAll: unfreeze backbone và train tất cả
-
 ### II/ ResNet 50
-#### 1. Sơ lược mạng ResNet
 [ResNet (Residual Network)](https://en.wikipedia.org/wiki/Residual_neural_network) được giới thiệu đến công chúng vào năm 2015 và thậm chí đã giành được vị trí thứ 1 trong cuộc thi ILSVRC 2015 với tỉ lệ lỗi top 5 chỉ 3.57%. Không những thế nó còn đứng vị trí đầu tiên trong cuộc thi ILSVRC and COCO 2015 với ImageNet Detection, ImageNet localization, Coco detection và Coco segmentation.Hiện tại thì có rất nhiều biến thể của kiến trúc ResNet với số lớp khác nhau như ResNet-18, ResNet-34, ResNet-50, ResNet-101, ResNet-152,...Với tên là ResNet theo sau là một số chỉ kiến trúc ResNet với số lớp nhất định.
 
 <p align="center">
@@ -457,11 +444,9 @@ Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây d�
 </p>
 
 Nhìn chung ResNet cũng gần như tương tự với các mạng gồm có convolution, pooling, activation và fully-connected layer. ResNet sử dụng các kết nối "tắt" đồng nhất để xuyên qua một hay nhiều lớp
-#### 2. Quá trình thiết lập training
 
 
 ### III/ MobileNetV2
-#### 1. Sơ lược mạng MobileNetV2
 Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc được ưa chuộng nhất khi phát triển các ứng dụng AI trong computer vision bởi độ chính xác và hiệu năng tính toán. MobileNetV2 cũng sử dụng những kết nối tắt như ở mạng ResNet. Tuy nhiên kết nối tắt ở MobileNetV2 được điều chỉnh sao cho số kênh (hoặc chiều sâu) ở input và output của mỗi block residual được thắt hẹp lại. Chính vì thế nó được gọi là các bottleneck layers. (Nguồn: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381))
 
 <p align="center">
@@ -470,7 +455,15 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Tổng quan về Kiến trúc MobileNetV2. Các block màu xanh đại diện cho các convolutional building blocks như hình trên.</em>
 </p>
 
-#### 2. Quá trình thiết lập training
+### Thiết lập training
+  
+  - Weight sử dụng là "imagenet"
+  - optimizer: "Adam"
+  - loss: "categorical_crossentropy"
+  - metrics: "accuracy"
+  - kĩ thuật: fine tuning
+    + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
+    + trainAll: unfreeze backbone và train tất cả
 
 ### IV/ Đánh giá các model
 #### Giai đoạn 1
@@ -512,23 +505,25 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
 </p>
 
-- Demo nhãn dự đoán và nhãn thực tế của hai mô hình (InceptionResnetv2 - trái và MobileNetv2 - phải):
+- Demo nhãn dự đoán và nhãn thực tế của hai mô hình (InceptionResnetv2 - phải và MobileNetv2 - trái):
 <p align="center">
   <img src="storage/plot_mb.png" , width = 450>
   <img src="storage/plot_incep.png", width = 450>
 </p>
 
-Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai:
+Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai ở một vài trường hợp:
+- MobileNetv2 nhận diện các chi tiết nhỏ kém hơn InceptionResnet nên thường dự đoán sai class 1 và 2
+- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết sang class 2 do ngoại vật (tay) đã được cắt ra khỏi ảnh
+- Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái.
 
 **So sánh hai model**
 | Tiêu chí đánh giá | InceptionResNetv2 | MobileNetv2 |
 | :---: | --- | --- |
-| Tốc độ xử lý | | |
-| Tài nguyên tiêu hao | | |
-| Độ chính xác | | |
+| Tốc độ xử lý (Thời gian train (mỗi epoch) - test trung bình (16 tấm))| 36s - 0.64s | 16s - 0.16s |
+| Độ chính xác | 80% trên bộ test | 78% trên bộ test |
 
 ***Kết luận***
-
+InceptionResNetv2 cho độ chính xác cao hơn MobileNetv2 khoảng 2% trên cùng bộ test nhưng thời gian xử lý lại cần nhiều hơn. Tổng thể MobileNetv2 tốt hơn khá nhiều so với InceptionResNetv2.
 # Chương 5: Ứng dụng và hướng phát triển
 ## Ứng dụng
 Như đã nêu ở phần I, mục đích ứng dụng của mô hình trên nhằm hướng đến các vựa thanh long và các nhà máy thu mua thanh long. Giúp cho các doanh nghiệp tự động hóa khâu phân loại ngay sau khâu rửa thanh long mà không cần dùng nhiều nhân lực vận hành .Tuy nhiên, việc phân loại cho xuất khẩu cần độ chính xác và năng suất cực cao nên model cần cải tiến rất nhiều về tốc độ xử lý và khả năng xử lý (phân loại nhiều quả trên khung hình, tốc độ băng chuyền nhanh,...)
