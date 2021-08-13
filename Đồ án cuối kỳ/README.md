@@ -241,7 +241,7 @@ Chứa tất cả ảnh đã gắn nhãn như mô tả trên
 
 ### Json
 
-1299 folder chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme](https://github.com/wkentaro/labelme) để decode thành nparray nhị phân 1280x720:
+1299 files chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme](https://github.com/wkentaro/labelme) để decode thành nparray nhị phân 1280x720:
   + 433 file thuộc view Binh_s cam
   + 433 file thuộc view Kha_s cam
   + 433 file thuộc view Ti_s cam
