@@ -21,13 +21,6 @@
 | 3 | Võ Tá Lâm | 19521744 | Thành viên | 19521744@gm.uit.edu.vn | [volam2001](https://github.com/volam2001) |
 
 
-## **overwrite**
-* [Problem](#chương-1-tổng-quan)
-* [Dataset](#chương-3-xây-dựng-bộ-dữ-liệu)
-* [Method](#)
-* [Predict & evaluate](#)
-* [References](#)
-
 # Chương 1: Tổng quan
 ## 1.1 Mô tả bài toán
 
@@ -215,8 +208,8 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 </p>
 
 ## Thông số bộ dữ liệu
-
-Có 3 folder chính được tổ chức, đặt tên giống nhau:
+Số quả thanh long nhóm sử dụng làm bộ dữ liệu khoảng 200 quả chia mỗi class khoảng từ 60-70 quả thanh long.
+Dữ liệu được chia ra 3 folder chính được tổ chức, đặt tên giống nhau:
  
 
 ### Img
@@ -301,9 +294,9 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
 #### 2. Chi tiết Input, Output và xử lí
 
 ##### 2.1 INPUT
-gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
-  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được resize thành [320, 640, 3] (file .jpg)
-  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được resize thành [320, 640]
+gồm 1299 tập dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 tập dùng để training và 200 tập dùng cho validation. Một tập gồm có:
+  - **X_input**: Ảnh quả thanh long gốc (3 ảnh) shape = [720, 1280, 3] được resize thành [320, 640, 3] (file .jpg)
+  - **y_true**: 3 file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được resize thành [320, 640]
 
 ##### 2.2 OUTPUT & XỬ LÍ
   - **y_predict** là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
@@ -354,9 +347,9 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 - Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
 - Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
 
-**Bộ dữ liệu cho model Enet_2cam**: Gồm tổng cộng 433 mẫu dữ liệu. Trong đó, có 361(≈83%) mẫu dùng để training và 72(≈17%) tập dùng cho validation.
+**Bộ dữ liệu cho model Enet_2cam**: Gồm tổng cộng 433 tập dữ liệu. Trong đó, có 361(≈83%) tập dùng để training và 72(≈17%) tập dùng cho validation.
 
-**Bộ dữ liệu cho model Enet_midcam**: Gồm tổng cộng 866 mẫu dữ liệu. Trong đó, có 738 (≈85%) mẫu dùng để training và 128(≈15%) tập dùng cho validation.
+**Bộ dữ liệu cho model Enet_midcam**: Gồm tổng cộng 866 tập dữ liệu. Trong đó, có 738 (≈85%) tập dùng để training và 128(≈15%) tập dùng cho validation.
 
 *Mỗi mẫu dữ liệu bao gồm:*
 - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
@@ -399,6 +392,7 @@ Output y_predict là np.array có shape [320,640,2]
 Unet chính xác hơn Enet nhưng tốc độ xử lý và tài nguyên tiêu hao lớn hơn Enet (tính toán hơn 20 triệu parameter so với 300 nghìn parameter của Enet). Tuy vậy, Unet chỉ chính xác hơn Enet một tí và thời gian xử lý 16 ảnh mất 0.797 giây (trong khi Enet xử lý chỉ mất 0.06 giây)
 ## Classify Model
 Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
+
 Bộ dữ liệu sử dụng cho các model:
 - Giai đoạn 1 (trước khi tăng cường dữ liệu): gồm 858 tập dữ liệu tương ứng với 2574 ảnh quả thanh long ở các góc chụp khác nhau (1 tập = 3 ảnh ở 3 góc chụp). 858 tập được chia ra như sau:
   - 606 tập để training (≈71%)
@@ -409,12 +403,13 @@ Bộ dữ liệu sử dụng cho các model:
   - 218 tập để validation (≈19%)
   - 119 tập để test (≈11%)
 
-Không như các bài toán phân loại hay nhận dạng thông thường. Vấn đề của bài toán là phân loại dựa thông tin ở 3 góc nhìn khác nhau => Bài toán phân loại dựa trên 3 góc. Vậy nhóm nghĩ ra phương pháp (sau này mới tìm và thấy đã có bài báo, pp tên là Multi-view CNN).
+Không như các bài toán phân loại hay nhận dạng thông thường. Vấn đề của bài toán là phân loại dựa thông tin ở 3 góc nhìn khác nhau => Bài toán phân loại dựa trên 3 góc. Vậy nhóm nghĩ ra phương pháp (sau này mới tìm và thấy đã có bài báo, pp tên là Multi-view CNN chi tiết đã nêu ở Chương II).
 
-<p float="left">
+<p align="center">
   <img src="storage/ppp.png",width = 450>
   <img src="storage/MobileNet/model_MbNetv2.png",width = 450>
   <br/>
+  <em>Sơ đồ cấu trúc model</em>
 </p>
 
 
@@ -501,26 +496,29 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 
 Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai ở một vài trường hợp:
 - MobileNetv2 nhận diện các chi tiết nhỏ kém hơn InceptionResnet nên thường dự đoán sai class 1 và 2
-- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần sang class 2 (lý do khuyết: ảnh chứa tay nên bị cắt đi)
+- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần  (lý do khuyết: ảnh chứa tay nên bị cắt đi) sang class 2 (loại 3) do nhầm lẫn thanh long bị khuyết tật về mặt hình dạng.
 - Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái và làm thay đổi màu sắc của quả trên ảnh
 
 **So sánh hai model**
 | Tiêu chí đánh giá | InceptionResNetv2 | MobileNetv2 |
 | :---: | --- | --- |
 | Tốc độ xử lý (Thời gian train (mỗi epoch) - test trung bình (16 tấm))| 36s - 0.64s | 16s - 0.16s |
-| Độ chính xác | accuracy 80% trên bộ test, f1-score cao hơn vài phần trăm ở tất cả các class| accuracy 78% trên bộ test, f1-score thấp hơn |
+| Độ chính xác | accuracy 80% trên bộ test, f1-score cao hơn vài phần trăm ở hầu hết các class| accuracy 78% trên bộ test, f1-score thấp hơn |
 
 ***Kết luận***
 InceptionResNetv2 cho độ chính xác cao hơn MobileNetv2 khoảng 2% - 5% trên cùng bộ test nhưng thời gian xử lý lại cần nhiều hơn. Tổng thể MobileNetv2 tốt hơn khá nhiều so với InceptionResNetv2.
 # Chương 5: Ứng dụng và hướng phát triển
 ## Ứng dụng
-Như đã nêu ở phần I, mục đích ứng dụng của mô hình trên nhằm hướng đến các vựa thanh long và các nhà máy thu mua thanh long. Giúp cho các doanh nghiệp tự động hóa khâu phân loại ngay sau khâu rửa thanh long mà không cần dùng nhiều nhân lực vận hành .Tuy nhiên, việc phân loại cho xuất khẩu cần độ chính xác và năng suất cực cao nên model cần cải tiến rất nhiều về tốc độ xử lý và khả năng xử lý (phân loại nhiều quả trên khung hình, tốc độ băng chuyền nhanh,...)
+Như đã nêu ở phần I, mục đích ứng dụng của mô hình trên nhằm hướng đến các vựa thanh long và các nhà máy thu mua thanh long. Giúp cho các doanh nghiệp tự động hóa khâu phân loại ngay sau khâu rửa thanh long mà không cần dùng nhiều nhân lực vận hành .Tuy nhiên, việc phân loại cho xuất khẩu cần độ chính xác và năng suất cực cao nên model cần cải tiến rất nhiều về tốc độ xử lý và khả năng xử lý (phân loại nhiều quả trên khung hình, tốc độ băng chuyền nhanh,...).
+
+[Demo](https://github.com/trankha1655/CS114_ML/blob/main/%C4%90%E1%BB%93%20%C3%A1n%20cu%E1%BB%91i%20k%E1%BB%B3/demo.mp4) ứng dụng phân loại qua video nhóm đã xây dựng với mỗi camera có tốc độ khung hình đạt khoảng 7-8 fps chạy trên card đồ họa 1650Ti sử dụng 1776Mb VRAM.
+
 ## Hướng phát triển
 ### Dữ liệu:
 - Cần nhiều dữ liệu về các giống thanh long khác nhau nhằm tăng sự đa dạng về sản phẩm cũng như giúp model nhận diện các đặc trưng riêng cho từng loại tốt hơn.
 - Cải thiện môi trường thu thập dữ liệu sát với thực tế (điều kiện ánh sáng trong nhà)
 - Cải thiện cách tăng cường dữ liệu bằng các phương thức như random crop (cắt ngẫu nhiên), rotation (xoay), information loss (mất thông tin)... thay vì xoay thủ công như đã trình bày ở trên.
-- Cải thiện và bổ sung các phuong pháp khác trong quá trình pre-processing dữ liệu
+- Cải thiện và bổ sung các phương pháp khác trong quá trình pre-processing dữ liệu
 ### Model:
 - Thử nghiệm một vài cách tiếp cận xây dựng model mới tham khảo bài toán tương tự như [Steel Defect Detection](https://www.kaggle.com/c/severstal-steel-defect-detection) và từ đó phát triển mô hình trên giúp cho mô hình nắm bắt tốt các khuyết tật của quả thanh long
 - Thử nghiệm một số model khác cũng như nghiên cứu thêm thông tin về các thông số ảnh hưởng thế nào đến các bộ dữ liệu khác nhau nhằm đưa ra cách điều chỉnh phù hợp.
