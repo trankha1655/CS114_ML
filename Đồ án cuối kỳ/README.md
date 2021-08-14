@@ -462,8 +462,9 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Chart so sánh performance các model.</em>
 </p>
 
+Sau khi xem xét performance cho các model. Nhóm quyết định training 2 model InceptionResNetv2 và MobileNetv2 cho giai đoạn 2.
 #### Giai đoạn 2
-- InceptionResNetv2: model này cho thấy rõ hiện trạng của dataset. Fine tuning, chỉ train các dense layer. Loss train, loss val gần như bằng nhau. Sau khi unfreeze, chỉ mỗi loss train giảm, val loss giảm ít. Cho thấy loss giảm là do mô hình "quá tốt". Vẫn bị overfitting, cần thêm data.
+- InceptionResNetv2: model này cho thấy rõ hiện trạng của dataset. Fine tuning, chỉ train các dense layer. Loss train, loss val gần như bằng nhau. Sau khi unfreeze, chỉ mỗi loss train giảm, val loss giảm ít. Cho thấy loss giảm là do mô hình "quá khớp". Vẫn bị overfitting nên cần thêm data.
 - MobileNetv2: cũng tương tự InceptionResNetv2, mạng nhỏ hơn nhưng vẫn overfitting. 
 
 <p align="center">
@@ -496,7 +497,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
 
 Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai ở một vài trường hợp:
 - MobileNetv2 nhận diện các chi tiết nhỏ kém hơn InceptionResnet nên thường dự đoán sai class 1 và 2
-- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần  (lý do khuyết: ảnh chứa tay nên bị cắt đi) sang class 2 (loại 3) do nhầm lẫn thanh long bị khuyết tật về mặt hình dạng.
+- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần (lý do khuyết: ảnh chứa tay nên bị cắt đi) sang class 2 (loại 3) do nhầm lẫn thanh long bị khuyết tật về mặt hình dạng.
 - Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái và làm thay đổi màu sắc của quả trên ảnh
 
 **So sánh hai model**
