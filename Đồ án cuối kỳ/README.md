@@ -40,7 +40,7 @@ Việc xuất khẩu trái cây trong đó có thanh long cũng được lựa c
 
 Hiện nay, các vựa thanh long truyền thống trên cả nước phần lớn vẫn chưa cơ giới hóa khâu phân loại mà cần khá nhiều nhân lực cho khâu này. Đặc biệt trong tình hình dịch bệnh Covid 19 đang diễn biến khá phức tạp, khi nhiều tỉnh thành phía nam phải thực hiện giãn cách xã hội ngay trong mùa thu hoạch thanh long khiến cho việc tập trung nhiều nhân lục tại một địa điểm rất khó khăn. [Sản lượng thanh long ở nước ta tăng rất nhanh](https://nongnghiep.vn/viet-nam-tiep-tuc-la-nha-san-xuat-thanh-long-hang-dau-d264006.html) do nhu cầu xuất khẩu đến các nước ngày càng cao đòi hỏi cần cơ giới hóa nhiều quy trình nhằm tăng năng suất cũng như rút ngắn thời gian sản phẩm đến tay người tiêu dùng, trong đó có khâu phân loại.
 
-🠊 ***Vì những nhu cầu thực tế trên, chúng tôi nghiên cứu phương pháp phân loại trái thanh long thông qua hình ảnh bằng machine learning***
+🠊 ***Vì những nhu cầu thực tế trên, nhóm tiến hành nghiên cứu phương pháp phân loại trái thanh long thông qua hình ảnh bằng deep learning***
 
 **1. Input của bài toán**
 
@@ -241,7 +241,7 @@ Chứa tất cả ảnh đã gắn nhãn như mô tả trên
 
 ### Json
 
-1299 folder chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme](https://github.com/wkentaro/labelme) để decode thành nparray nhị phân 1280x720:
+1299 files chứa nhãn dạng đuôi .json train cho segmentation model để xóa background, <br/> file này sử dụng tool có sẵn trong [labelme](https://github.com/wkentaro/labelme) để decode thành nparray nhị phân 1280x720:
   + 433 file thuộc view Binh_s cam
   + 433 file thuộc view Kha_s cam
   + 433 file thuộc view Ti_s cam
@@ -302,14 +302,14 @@ Kiến trúc mạng Unet có 2 phần đối xứng nhau: phần encoder (phần
 
 ##### 2.1 INPUT
 gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 mẫu dùng để training và 200 mẫu dùng cho validation. Một mẫu gồm có:
-  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
-  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
+  - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được resize thành [320, 640, 3] (file .jpg)
+  - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được resize thành [320, 640]
 
 ##### 2.2 OUTPUT & XỬ LÍ
   - **y_predict** là np.array mang các giá trị từ [0, 1] với shape = [320, 640, 1] 
   - sau đó apply **y_predict** vào ảnh gốc thu được phần trái đã được xóa background.
 
-#### 3. Quá trình thiết lập training
+#### 3. Thiết lập training
 
 ##### 3.1 COMPILE
   - backbone nhóm sử dụng là vgg16 vì thấy ít parameter hơn resnet50 hay các mạng khác.
@@ -317,7 +317,6 @@ gồm 1299 mẫu dữ liệu trộn lẫn của cả 3 camera. Trong đó, 1099 
   - epoch = 100
   - loss: [jaccard_loss](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.losses.JaccardLoss), metric: [IOU_score](https://segmentation-models.readthedocs.io/en/latest/api.html#segmentation_models.metrics.IOUScore) có sẵn trong repos [Segmentation Models](https://github.com/qubvel/segmentation_models)
 
- 
 ##### 3.2 SUMMARY
 
 Thông số parameter của model:
@@ -325,8 +324,7 @@ Thông số parameter của model:
 - Trainable params: 23,748,241
 - Non-trainable params: 4,032
 
-
-#### 4. Kết quả: ...(updating)(đánh giá performance)
+#### 4. Kết quả:
 Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết quá trình từng epoch:
 
   - Mỗi epoch mất khoảng 96s để train.
@@ -334,16 +332,12 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
   - Model huyền thoại này khá ổn, với số lượng data tương đối nhiều, kết quả tốt. 
   - Nhóm thử predict trên batch 16 tấm, model xử lí trong khoảng 0.797s => khoảng 20fps. 
 
-
-
 <p align="center">
   <img src="storage/Unet/loss_Unet.png",width = 450>
   <img src="storage/Unet/iou_score_Unet.png",width = 450>
   <br/>
   <em>Đồ thị loss value và iou score của model</em>
 </p>
-
-
 
 #### 5. Demo
 <p align="center">
@@ -356,7 +350,7 @@ Nhận xét: [Colab train](Colab_train/Preprocessing_Unet.ipynb) có chi tiết 
 ****ENet (Efficient Neural Network)*** có khả năng phân khúc ảnh qua pixel theo thời gian thực. ENet nhanh hơn đến 18 lần, yêu cầu FLOP (Floating Point Operation Per Second) ít hơn 75 lần và số lượng tham số (parameters) ít hơn 79 lần cho độ chính xác gần tương đương so với các mô hình hiện có (năm 2016). Số liệu trên có được qua các thử nghiệm trên bộ dũ liệu CamVid, Cityscapes và SUN (nguồn: [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147))
 
 #### 2. Chi tiết datasets
-Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại. Vì vậy, nhóm quyết định train 2 model cho 2 trường hợp dữ liệu.
+Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong folder *"Kha_cam"* có độ sáng mạnh hơn các ảnh ở 2 folder còn lại, mà mạng Enet có số lượng parameter ít hơn Unet rất nhiều nên rất khó trích xuất chính xác đặc trưng. Vì vậy, để tăng độ chính xác nhóm quyết định train 2 model cho 2 trường hợp dữ liệu.
 - Một model (**Enet_2cam**) dành cho ảnh chụp bởi 2 camera ở 2 bên có góc nhìn từ trên xuống.
 - Một model (**Enet_midcam**) dành cho ảnh chụp bởi camera chụp từ dưới lên.
 
@@ -368,14 +362,14 @@ Sau khi xem xét bộ dữ liệu, nhận thấy ánh sáng các ảnh trong fol
 - **X_input**: Ảnh quả thanh long gốc shape = [720, 1280, 3] được reshape thành [320, 640, 3] (file .jpg)
 - **y_true**: file .json sau khi segment ảnh bằng labelme thu được mảng với shape = [720, 1280] được reshape thành [320, 640]
 
-Output y_predict là np.array có shape [320,640,3] 
+Output y_predict là np.array có shape [320,640,2] 
 
-#### 3. Quá trình thiết lập training
+#### 3.Thiết lập training
 
-- batch size = 32
-- Epoch = 100
+- Batch size = 32
 - Loss sử dụng hàm cross entropy loss
 - optimizer là Adam
+- Learning rate = 0.0005
 
 #### 4. Kết quả
 
@@ -385,7 +379,6 @@ Output y_predict là np.array có shape [320,640,3]
   <br/>
   <em>Đồ thị loss value của hai model</em>
 </p>
-
 
 #### 5. Demo
 
@@ -401,15 +394,9 @@ Output y_predict là np.array có shape [320,640,3]
   <img src="storage/Enet/2_cam/Plot_demo.png">
 </p>
 
-### So sánh hai model
-| Tiêu chí đánh giá | UNet | ENet |
-| :---: | --- | --- |
-| Tốc độ xử lý | | |
-| Tài nguyên tiêu hao | | |
-| Độ chính xác | | |
-
 ***Kết luận***
 
+Unet chính xác hơn Enet nhưng tốc độ xử lý và tài nguyên tiêu hao lớn hơn Enet (tính toán hơn 20 triệu parameter so với 300 nghìn parameter của Enet). Tuy vậy, Unet chỉ chính xác hơn Enet một tí và thời gian xử lý 16 ảnh mất 0.797 giây (trong khi Enet xử lý chỉ mất 0.06 giây)
 ## Classify Model
 Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
 Bộ dữ liệu sử dụng cho các model:
@@ -428,32 +415,14 @@ Không như các bài toán phân loại hay nhận dạng thông thường. V�
   <img src="storage/ppp.png",width = 450>
   <img src="storage/MobileNet/model_MbNetv2.png",width = 450>
   <br/>
-  <em>NGHĨA M CHO 2 ẢNH NÀY TRÊN 1 DÒNG DÙM TAO</em>
 </p>
 
 
 
 ### I/ BACKBONE: Inception ResNet v2
-#### 1. Sơ lược Inception Resnet v2
 Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây dựng dựa trên họ kiến trúc Inception nhưng kết hợp các kết [Residual Connection](https://paperswithcode.com/method/residual-connection). Chi tiết : [Inception ResNet v2](https://paperswithcode.com/model/inception-resnet-v2?variant=inception-resnet-v2-1)
 
-#### 2. Quá trình thiết lập training
-  
-  - Weight sử dụng là "imagenet"
-  - optimizer: "Adam"
-  - loss: "categorical_crossentropy"
-  - metrics: "accuracy"
-  - kĩ thuật: fine tuning
-    + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
-    + trainAll: unfreeze backbone và train tất cả
-
-#### 3. Đánh giá kết quả
-##### **Giai đoạn 1:**
-
-**Giai đoạn 2:**
-
 ### II/ ResNet 50
-#### 1. Sơ lược mạng ResNet
 [ResNet (Residual Network)](https://en.wikipedia.org/wiki/Residual_neural_network) được giới thiệu đến công chúng vào năm 2015 và thậm chí đã giành được vị trí thứ 1 trong cuộc thi ILSVRC 2015 với tỉ lệ lỗi top 5 chỉ 3.57%. Không những thế nó còn đứng vị trí đầu tiên trong cuộc thi ILSVRC and COCO 2015 với ImageNet Detection, ImageNet localization, Coco detection và Coco segmentation.Hiện tại thì có rất nhiều biến thể của kiến trúc ResNet với số lớp khác nhau như ResNet-18, ResNet-34, ResNet-50, ResNet-101, ResNet-152,...Với tên là ResNet theo sau là một số chỉ kiến trúc ResNet với số lớp nhất định.
 
 <p align="center">
@@ -463,12 +432,9 @@ Inception-ResNet-v2 là một kiến trúc nơ-ron tích chập được xây d�
 </p>
 
 Nhìn chung ResNet cũng gần như tương tự với các mạng gồm có convolution, pooling, activation và fully-connected layer. ResNet sử dụng các kết nối "tắt" đồng nhất để xuyên qua một hay nhiều lớp
-#### 2. Quá trình thiết lập training
 
-#### 3. Đánh giá kết quả
 
 ### III/ MobileNetV2
-#### 1. Sơ lược mạng MobileNetV2
 Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc được ưa chuộng nhất khi phát triển các ứng dụng AI trong computer vision bởi độ chính xác và hiệu năng tính toán. MobileNetV2 cũng sử dụng những kết nối tắt như ở mạng ResNet. Tuy nhiên kết nối tắt ở MobileNetV2 được điều chỉnh sao cho số kênh (hoặc chiều sâu) ở input và output của mỗi block residual được thắt hẹp lại. Chính vì thế nó được gọi là các bottleneck layers. (Nguồn: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381))
 
 <p align="center">
@@ -477,14 +443,17 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Tổng quan về Kiến trúc MobileNetV2. Các block màu xanh đại diện cho các convolutional building blocks như hình trên.</em>
 </p>
 
-#### 2. Quá trình thiết lập training
+### Thiết lập training
+  
+  - Weight sử dụng là "imagenet"
+  - optimizer: "Adam"
+  - loss: "categorical_crossentropy"
+  - metrics: "accuracy"
+  - kĩ thuật: fine tuning
+    + freeze: giữ weigth của backbone lại. chỉ train các layer còn lại
+    + trainAll: unfreeze backbone và train tất cả
 
-#### 3. Đánh giá kết quả
-**Giai đoạn 1:**
-
-**Giai đoạn 2:**
-
-### IV/ So sánh các model
+### IV/ Đánh giá các model
 #### Giai đoạn 1
 
 - InceptionResNetv2: mạng có độ phức tạp cao nên loss accuracy tốt nhất trong 3 mạng, nhưng vẫn bị overfitting. 
@@ -508,7 +477,7 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Chart so sánh performance các model.</em>
 </p>
 
-- Metrics của 2 model cũng ko hơn kém gì nhau bao nhiêu
+- Metrics của 2 model cũng ko hơn kém gì nhau bao nhiêu. Tuy nhiên, InceptionResNetv2 có số lượng parameters nhiều gấp khoảng 21 lần so với model MobileNetv2 (164,609,699 parameters so với 8,108,227 parameters). Vì vậy, thời gian train và test MobileNetv2 nhanh hơn nhiều so với InceptionResNetv2.
 <p align="center">
   <img src="storage/metric_mb.png">
   <img src="storage/metric_resnet.png">
@@ -516,18 +485,42 @@ Kể từ khi ra đời, MobileNetV2 là một trong những kiến trúc đư�
   <em>Metrics của MobileNetv2 (trên) và InceptionResnetv2 (dưới).</em>
 </p>
 
-- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều. 
+- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều.
 <p align="center">
   <img src="storage/Cufusion_matrix_MB.png">
   <img src="storage/Cufusion_matrix_resnet.png">
   <br>
-  <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
+  <em>Confusion matrix của MobileNetv2 (trái) và InceptionResnetv2 (phải).</em>
 </p>
 
-- Demo thử các trái: 
+- Demo nhãn dự đoán và nhãn thực tế của hai mô hình (InceptionResnetv2 - phải và MobileNetv2 - trái):
 <p align="center">
   <img src="storage/plot_mb.png" , width = 450>
   <img src="storage/plot_incep.png", width = 450>
-  <br>
-  <em>Metrics của MobileNetv2 (phải) và InceptionResnetv2 (trái).</em>
 </p>
+
+Qua quan sát sơ bộ, nhóm đưa ra một số lý do khiến cho mô hình dự đoán sai ở một vài trường hợp:
+- MobileNetv2 nhận diện các chi tiết nhỏ kém hơn InceptionResnet nên thường dự đoán sai class 1 và 2
+- InceptionResNetv2 nhận diện các chi tiết tốt hơn nên thường nhận diện các quả thanh long bị khuyết một phần sang class 2 (lý do khuyết: ảnh chứa tay nên bị cắt đi)
+- Sự thiếu đồng bộ về ánh sáng của ảnh đặc biệt camera thứ 2 sáng hơn 2 camera còn lại. Ánh sáng cao cũng làm mờ các khuyết tật của trái và làm thay đổi màu sắc của quả trên ảnh
+
+**So sánh hai model**
+| Tiêu chí đánh giá | InceptionResNetv2 | MobileNetv2 |
+| :---: | --- | --- |
+| Tốc độ xử lý (Thời gian train (mỗi epoch) - test trung bình (16 tấm))| 36s - 0.64s | 16s - 0.16s |
+| Độ chính xác | accuracy 80% trên bộ test, f1-score cao hơn vài phần trăm ở tất cả các class| accuracy 78% trên bộ test, f1-score thấp hơn |
+
+***Kết luận***
+InceptionResNetv2 cho độ chính xác cao hơn MobileNetv2 khoảng 2% - 5% trên cùng bộ test nhưng thời gian xử lý lại cần nhiều hơn. Tổng thể MobileNetv2 tốt hơn khá nhiều so với InceptionResNetv2.
+# Chương 5: Ứng dụng và hướng phát triển
+## Ứng dụng
+Như đã nêu ở phần I, mục đích ứng dụng của mô hình trên nhằm hướng đến các vựa thanh long và các nhà máy thu mua thanh long. Giúp cho các doanh nghiệp tự động hóa khâu phân loại ngay sau khâu rửa thanh long mà không cần dùng nhiều nhân lực vận hành .Tuy nhiên, việc phân loại cho xuất khẩu cần độ chính xác và năng suất cực cao nên model cần cải tiến rất nhiều về tốc độ xử lý và khả năng xử lý (phân loại nhiều quả trên khung hình, tốc độ băng chuyền nhanh,...)
+## Hướng phát triển
+### Dữ liệu:
+- Cần nhiều dữ liệu về các giống thanh long khác nhau nhằm tăng sự đa dạng về sản phẩm cũng như giúp model nhận diện các đặc trưng riêng cho từng loại tốt hơn.
+- Cải thiện môi trường thu thập dữ liệu sát với thực tế (điều kiện ánh sáng trong nhà)
+- Cải thiện cách tăng cường dữ liệu bằng các phương thức như random crop (cắt ngẫu nhiên), rotation (xoay), information loss (mất thông tin)... thay vì xoay thủ công như đã trình bày ở trên.
+- Cải thiện và bổ sung các phuong pháp khác trong quá trình pre-processing dữ liệu
+### Model:
+- Thử nghiệm một vài cách tiếp cận xây dựng model mới tham khảo bài toán tương tự như [Steel Defect Detection](https://www.kaggle.com/c/severstal-steel-defect-detection) và từ đó phát triển mô hình trên giúp cho mô hình nắm bắt tốt các khuyết tật của quả thanh long
+- Thử nghiệm một số model khác cũng như nghiên cứu thêm thông tin về các thông số ảnh hưởng thế nào đến các bộ dữ liệu khác nhau nhằm đưa ra cách điều chỉnh phù hợp.
