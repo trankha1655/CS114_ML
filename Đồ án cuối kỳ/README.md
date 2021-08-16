@@ -270,7 +270,7 @@ Chứa 2 loại:
 
 ## Model dùng xóa background ảnh (Giai đoạn Preprocessing)
 
-Tại sao lại có bước tiền xử lí này, nhóm sẽ đề cập ở phần [Classify Model](##classify-model) phía dưới. Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
+Tại sao lại có bước tiền xử lí này, nhóm sẽ đề cập ở phần [Classify Model](#tại-sao-có-bước-tiền-xử-lí) phía dưới. Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
 
 <p align="center">
   <img src="storage/Unet/test_Unet%20(2).png",width=600>
@@ -494,7 +494,7 @@ Sau khi xem xét performance cho các model. Nhóm quyết định training 2 mo
   <em>Metrics của MobileNetv2 (trên) và InceptionResnetv2 (dưới).</em>
 </p>
 
-- Check kĩ từng class ta thấy, MobileNet sai ở class 1 và class 2 nhiều.
+- Ta thấy, MobileNet sai ở class 1 và class 2 nhiều hơn InceptionResnet. Vì class 2 có nhiều chi tiết cực kì nhỏ. Mạng Inception với độ phức tạp cao nên dễ dàng hơn. 
 <p align="center">
   <img src="storage/Cufusion_matrix_MB.png">
   <img src="storage/Cufusion_matrix_resnet.png">
