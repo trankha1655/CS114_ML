@@ -39,7 +39,7 @@ Hiện nay, các vựa thanh long truyền thống trên cả nước phần l�
 
 Ba ảnh trích xuất từ 3 góc của camera với độ phân giải mỗi ảnh là 720p (1280 x 720 pixels). Mỗi ảnh chụp một mặt của cùng một quả thanh long
 
-<p float="left">
+<p align="center">
   <img src="Dataset/img/label_1/Binh_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
   <img src="Dataset/img/label_1/Kha_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" /> 
   <img src="Dataset/img/label_1/Ti_s%20cam/Binh_cam.00_06_31_17.Still040.jpg" width="300" />
@@ -154,7 +154,7 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 - Có nhiều nấm bệnh, nhiều đốm do côn trùng.
 - Vỏ quả có màu sắc sẫm màu hơn loại 1 hoặc phần vỏ không hoàn toàn màu đỏ (ngoại trừ phần tai thanh long).
 
-<p float="center">
+<p align="center">
   <img src="storage/Label_3_pic1.jpg" width="1000" />
   <img src="storage/Label_3_pic2(1).jpg" width="1000" /> 
   <img src="storage/Label_3_pic3.jpg" width="1000" />
@@ -164,14 +164,14 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 ## Tiền xử lý dữ liệu: Sử dụng model Semantic Segmentation
 
 - Sử dụng [labelme](https://github.com/wkentaro/labelme) để viền phần trái và dán nhãn
-  <p float="left">
+<p align="center">
   <img src="storage/Binh_cam_labelme.jpg" width="300" />
   <img src="storage/Kha_cam_labelme.jpg" width="300" /> 
   <img src="storage/Ti_cam_labelme.jpg" width="300" />
 </p>
 
 - Sử dụng các loại model Semantic Segmentation huấn luyện, tách phần background và giữ lại phần trái để huấn luyện cho mô hình phân loại
-<p float="left">
+<p align="center">
   <img src="Dataset/crop_mask/label_1/Binh_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
   <img src="Dataset/crop_mask/label_1/Kha_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" /> 
   <img src="Dataset/crop_mask/label_1/Ti_s%20cam/Binh_cam.00_05_50_12.Still029.png" width="300" />
@@ -181,7 +181,7 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 ## Trường hợp dữ liệu khó xử lý
 
 - Ảnh có chứa ngoại vật xen lẫn vào trái thanh long: tay, thanh sắt lúc chụp từ dưới lên.
-<p float="center">
+<p align="center">
   <img src="Dataset/img/label_2/Ti_s%20cam/label_2.01_14_13_26.Still024.jpg" width="450" />
   <img src="Dataset/img/label_2/Ti_s%20cam/label_2.01_13_44_28.Still008.jpg" width="450" /> 
   
@@ -189,7 +189,7 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
   <em>Ngoại vật trong trường hợp này là tay người</em>
 </p>
 
-<p float="center">
+<p align="center">
   <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_21_23.Still054.jpg" width="450" /> 
   <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_09_28_15.Still055.jpg" width="450" /> 
     
@@ -198,9 +198,9 @@ Thanh long thuộc loại này có chất lượng thấp nhất do có quá nhi
 </p>
 
 - Ảnh ở camera thứ hai (Kha_cam) có độ sáng cao hơn 2 ảnh ở camera còn lại do góc chụp từ dưới hướng lên trời.
-<p float="center">
+<p align="center">
   <img src="Dataset/img/label_2/Kha_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="900" />
-<p float="center">
+<p align="center">
   <img src="Dataset/img/label_2/Ti_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
   <img src="Dataset/img/label_2/Binh_s%20cam/Binh_cam.00_30_53_16.Still149.jpg" width="450" />
 <p align="center">
@@ -224,7 +224,7 @@ Chứa tất cả ảnh đã gắn nhãn như mô tả trên
   + 412 tập thuộc label 2
   + 301 tập thuộc label 3
 
-<p float="left">
+<p align="center">
   <img src="Dataset/img/label_1/Binh_s%20cam/label_2.01_13_23_06.Still000.jpg" width="300" />
   <img src="Dataset/img/label_1/Binh_s%20cam/l1_extra.00_04_06_24.Still000.jpg" width="300" /> 
   <img src="Dataset/img/label_1/Binh_s%20cam/l3_extra.02_20_39_13.Still000.jpg" width="300" />
@@ -269,7 +269,8 @@ Chứa 2 loại:
 </p>
 
 ## Model dùng xóa background ảnh (Giai đoạn Preprocessing)
-Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
+
+Tại sao lại có bước tiền xử lí này, nhóm sẽ đề cập ở phần [Classify Model](##classify-model) phía dưới. Ứng dụng các nghiên cứu cho bài toán semantic segmentation, nhóm xây dựng và thử nghiệm hai model dựa trên kiến trúc mạng [Unet](https://github.com/milesial/Pytorch-UNet) và [Enet](https://github.com/davidtvs/PyTorch-ENet)
 
 <p align="center">
   <img src="storage/Unet/test_Unet%20(2).png",width=600>
@@ -390,6 +391,7 @@ Output y_predict là np.array có shape [320,640,2]
 ***Kết luận***
 
 Unet chính xác hơn Enet nhưng tốc độ xử lý và tài nguyên tiêu hao lớn hơn Enet (tính toán hơn 20 triệu parameter so với 300 nghìn parameter của Enet). Tuy vậy, Unet chỉ chính xác hơn Enet một tí và thời gian xử lý 16 ảnh mất 0.797 giây (trong khi Enet xử lý chỉ mất 0.06 giây)
+
 ## Classify Model
 Trong quá trình thử nghiệm các model, nhóm đánh giá 2 trường hợp trước và sau khi tăng thêm dữ liệu. Do quá trình training giai đoạn một mô hình có độ chính xác không cao và có dấu hiệu overfitting nên nhóm tăng thêm dữ liệu theo cách đã được trình bày ở phần ***Chi tiết bộ dữ liệu***
 
@@ -410,6 +412,17 @@ Không như các bài toán phân loại hay nhận dạng thông thường. V�
   <img src="storage/MobileNet/model_MbNetv2.png",width = 450>
   <br/>
   <em>Sơ đồ cấu trúc model</em>
+</p>
+
+### Tại sao có bước tiền xử lí
+
+Ban đầu nhóm đã đề xuất ra 2 hướng giải quyết bài toán: 1 là huấn luyện trên bộ raw data, 2 là huấn luyện trên bộ data đã tiền xử lí (xóa background). Kết quả khi huấn luyện trên bộ raw data (phương pháp như trên) kết quả cho ra ban đầu khá tốt, cứ tưởng bài toán đúng, nhưng train về sau kết quả là tuyệt đối, nên nhóm đã có nghi ngờ là train với background kết quả sai, vì nhóm hơi sơ suất đã không note, plot lại dữ liệu train ban đầu, chỉ còn 1 file ảnh trao đổi trong nhóm chat. Với kết quả như vậy nhóm quyết định ko sử dụng raw data. Nên có bước remove backround bằng semantic segmentation model như trên.
+
+<p align="center">
+  <img src="storage/wrong_data.png">
+  
+<br/>
+  <em>Kết quả quá trình train với raw data</em>
 </p>
 
 
